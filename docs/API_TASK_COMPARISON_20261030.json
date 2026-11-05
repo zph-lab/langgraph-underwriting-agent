@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-30",
+  "model_id": null,
+  "model_identity_note": "Per-run model ID not recorded; do not infer from current configuration.",
+  "before_source": "Comparison table in local post-test REPORT.md; original pre-test directory not found.",
+  "after_source": "Local post-test case-1.json through case-4.json.",
+  "before": {
+    "cases": 4,
+    "input_tokens": 519830,
+    "output_tokens": 8458,
+    "mean_first_text_seconds": 1.196,
+    "mean_final_response_seconds": 31.678,
+    "mean_total_seconds": 31.694,
+    "total_seconds": 126.775,
+    "model_requests": 17
+  },
+  "after": {
+    "cases": 4,
+    "input_tokens": 477114,
+    "output_tokens": 7615,
+    "mean_first_text_seconds": 1.3950175,
+    "mean_final_response_seconds": 40.89154912496451,
+    "mean_total_seconds": 40.90831985001569,
+    "model_requests": 17
+  },
+  "after_runs": [
+    {
+      "case": 1,
+      "input_tokens": 86933,
+      "output_tokens": 1651,
+      "model_first_output_ms": 1583.99,
+      "first_visible_text_seconds": 4.596993500017561,
+      "final_response_seconds": 38.034384900005534,
+      "total_seconds": 38.04931880009826,
+      "usage_complete": true
+    },
+    {
+      "case": 2,
+      "input_tokens": 110589,
+      "output_tokens": 2199,
+      "model_first_output_ms": 1452.1,
+      "first_visible_text_seconds": 6.241050899960101,
+      "final_response_seconds": 42.40801699995063,
+      "total_seconds": 42.42447909992188,
+      "usage_complete": true
+    },
+    {
+      "case": 3,
+      "input_tokens": 152417,
+      "output_tokens": 2039,
+      "model_first_output_ms": 1341.67,
+      "first_visible_text_seconds": 5.314139800029807,
+      "final_response_seconds": 47.495227699982934,
+      "total_seconds": 47.51159580005333,
+      "usage_complete": true
+    },
+    {
+      "case": 4,
+      "input_tokens": 127175,
+      "output_tokens": 1726,
+      "model_first_output_ms": 1202.31,
+      "first_visible_text_seconds": 5.116570299956948,
+      "final_response_seconds": 35.62856689991895,
+      "total_seconds": 35.647885699989274,
+      "usage_complete": true
+    }
+  ]
+}
