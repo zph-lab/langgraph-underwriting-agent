@@ -38,3 +38,28 @@ Thumbs.db
 **/evals/*.json
 /rule_editor_new/rule_test/_input*.json*
 /rule_editor_new/rule_test/_rulecontent*.json
+# Local release audit and sanitized export workspace
+/.release-audit/
+/.github-export/
+
+# Build outputs and package metadata
+dist/
+build/
+*.egg-info/
+*.tsbuildinfo
+
+# Test, coverage, and static-analysis caches
+.coverage
+.coverage.*
+htmlcov/
+coverage/
+.tox/
+.nox/
+.mypy_cache/
+.ruff_cache/
+
+# Local temporary files and operating-system metadata
+*.swp
+*.swo
+~$*
+desktop.ini

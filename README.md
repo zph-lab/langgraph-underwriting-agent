@@ -1,74 +1,137 @@
 # LangGraph Underwriting Agent
 
-基于 LangGraph 的核保规则开发智能体，支持工具调用、流式响应、会话持久化，并集成规则编辑器。
+基于 **LangGraph** 开发的核保规则 Agent，对接公司的 **ADP 规则文档编辑器**，将业务问答、规则检索、规则草拟与编辑器校验整合到一个工作台。
 
-**从 GitHub 克隆后，请先阅读 [分发版配置说明](GITHUB_SETUP.md)。仓库不包含真实凭据、业务数据库、BOM 或本地依赖。**
+Agent 负责结合业务对象模型（BOM）和已有规则辅助编写规则；文档编辑器负责规则编辑、候选提示、语法校验、结构化转换及平台对接。两者通过 FastAPI 统一提供服务，共用一个 HTTP 端口。
 
-# 核保工作台（单端口合并版）
+## 主要能力
 
-## 开发与交接文档（2026-11-03 核对）
+- **LangGraph Agent**：模型与工具循环、上下文预算管理、摘要压缩、任务取消及超时控制。
+- **业务检索**：通过 `bom_search` 和 `rule_search` 查询 BOM 字段、方法和已有规则，使用只读工具为答复提供依据。
+- **流式交互**：Vue 3 网页配合 SSE 展示任务进度和最终答复，支持附件文本提取、会话管理与 SQLite 检查点。
+- **规则文档编辑器对接**：提供规则候选、标注、校验、JSON 生成与本地求值能力，保留编辑器自身的登录及 ADP 对接流程。
+- **统一工作台**：`/assistant/` 为规则 AI 助手，`/` 为规则文档编辑器，顶部导航可在两者之间切换。
 
-- [文档编辑器开发文档](docs/01_文档编辑器开发文档.md)：架构、接口、BOM/注册表、语法维护、验证与排障。
-- [Agent 业务助手开发文档](docs/02_Agent业务助手开发文档.md)：LangGraph、模型/Skill、只读工具、SSE、会话与扩展入口。
-- [项目启动部署文档](docs/03_项目启动部署文档.md)：本机和新电脑安装、配置、验收、服务托管、代理、备份回退。
+助手生成的内容可通过“复制并到编辑器验证”进入编辑器，仍需手动粘贴。规则保存和平台上传由用户在编辑器中操作；模型工具仅开放只读检索。
 
-接手时先读启动部署文档，再按业务模块阅读开发文档。旧模块说明中的双端口、iframe、默认模型及测试数量可能属于历史记录；本套文档按当前代码说明现状，并区分已实现功能与部署示例。
+## 架构
 
-编辑器与规则 AI 助手已整合为一个项目入口、一个 Python 服务、一个 HTTP 端口。原有两个目录现在作为业务模块保留，数据库、模型、提示词、上传流程及已有登录配置均沿用；无需分别启动原服务。
-
-## 在当前电脑启动
-
-在本目录打开 PowerShell，执行：
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\start.ps1
+```mermaid
+flowchart TD
+    User[业务用户] --> App[FastAPI 统一入口 :8009]
+    App --> AgentUI[规则 AI 助手 /assistant/]
+    App --> Editor[公司规则文档编辑器 /]
+    AgentUI --> Runtime[LangGraph 运行层]
+    Runtime --> Model[OpenAI 兼容模型服务]
+    Runtime --> Tools[只读工具桥接]
+    Tools --> BOM[BOM / SQLite]
+    Tools --> Rules[规则检索 / MySQL]
+    Runtime --> Checkpoint[SQLite 会话检查点]
+    Runtime --> Validation[编辑器离线校验适配]
+    Validation --> Editor
+    Editor --> ADP[ADP 平台接口]
 ```
 
-浏览器打开 **http://127.0.0.1:8009/**。右上角导航按钮可切换 `规则AI助手` 和 `adp规则编辑器`，分别整页跳转到 `/assistant/` 和 `/`。助手完整显示自身顶栏、会话侧栏和聊天区域；编辑器占满顶栏下方空间。切换会重新加载页面，草稿和历史会话沿用各功能原有浏览器存储恢复策略，未发送附件不跨页面保留。助手的“复制并到编辑器验证”会跳转编辑器，仍需手动粘贴。
+## 技术栈
 
-终端保持打开，按 `Ctrl+C` 停止。无需再启动 8712。若 8009 已被旧服务占用，请停止对应旧服务，或指定其他端口：
+| 模块 | 技术 |
+| --- | --- |
+| Agent 编排 | Python、LangGraph |
+| 模型接入 | OpenAI 兼容接口 |
+| 服务与流式通信 | FastAPI、Uvicorn、SSE |
+| 网页界面 | Vue 3、原生 JavaScript / HTML / CSS |
+| 检索与数据 | Node.js、SQLite、MySQL |
+| 规则处理 | BOM 驱动的候选、校验与结构化转换 |
+
+## 快速开始
+
+需要 Python 3.12、Node.js 22.5 或更高版本，以及可访问的模型服务和配套业务数据。仓库不包含真实凭据、业务 BOM、数据库、运行时检查点或依赖目录。
+
+### 1. 下载并安装依赖
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\start.ps1 -Port 8010
-```
-
-此时访问 http://127.0.0.1:8010/。助手离线校验也会使用该端口。
-
-脚本优先使用根目录 `.venv`；不存在时复用已附带的助手 `.venv-langgraph` 环境。本次已为该环境补装编辑器需要的 jieba。
-
-## 换电脑或重新安装环境
-
-推荐 Python 3.12，另需安装 Node.js（助手的 BOM/规则检索仍依赖 Node）。复制整个项目目录，包括原有数据、模型和本机配置；虚拟环境不可跨电脑直接复用。
-
-```powershell
+git clone https://github.com/zph-lab/langgraph-underwriting-agent.git
+cd langgraph-underwriting-agent
 py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+Push-Location 'ar_agent开发/agent_1/airong_agent_test1'
+npm ci
+Pop-Location
+```
+
+### 2. 配置模型、检索和编辑器
+
+将示例配置复制到本地运行路径：
+
+```powershell
+$agentDir = 'ar_agent开发/agent_1/airong_agent_test1'
+New-Item -ItemType Directory -Force "$agentDir/config" | Out-Null
+Copy-Item config-examples/models.example.json "$agentDir/.pi/models.json"
+Copy-Item config-examples/mysql.example.json "$agentDir/config/mysql.json"
+Copy-Item config-examples/rule-editor.example.json "$agentDir/config/rule-editor.json"
+Copy-Item config-examples/editor.config.example.yaml rule_editor_new/rule_editor/config.yaml
+$env:AGENT_API_KEY = 'YOUR_API_KEY'
+```
+
+以上复制步骤用于首次配置。填写模型服务地址和模型 ID，并与助手 `.pi/settings.json` 中的 provider、model 保持一致；填写 MySQL 连接、编辑器登录账号密码，以及所需 ADP 参数。
+
+另需准备匹配的 BOM、方法注册表和 SQLite 检索数据，并在配置中设置实际路径。示例中的登录账号密码为空，必须填写后才能登录。数据准备和配置细节见 [分发版配置说明](GITHUB_SETUP.md) 与 [数据更换指南](rule_editor_new/数据更换指南.md)。
+
+### 3. 启动工作台
+
+```powershell
 powershell -ExecutionPolicy Bypass -File .\start.ps1
 ```
 
-助手现有 Node 依赖位于 `ar_agent开发/agent_1/airong_agent_test1/node_modules`；如未复制依赖，在该业务目录执行 `npm ci`。已有 SQLite/BOM 数据时不需要重新运行 ETL。
+- 规则文档编辑器：<http://127.0.0.1:8009/>
+- 规则 AI 助手：<http://127.0.0.1:8009/assistant/>
 
-## 结构和保留行为
+可使用 `-Port 8010` 更改端口，或使用 `-BindHost 0.0.0.0` 监听局域网地址。统一入口会将助手的编辑器校验地址绑定到实际端口。终端按 `Ctrl+C` 停止服务。
 
-- `start.py`、`start.ps1`：统一启动；默认仅监听本机 8009，可通过 `-BindHost 0.0.0.0` 指定局域网监听。
-- `merged_app.py`：组合两套 ASGI 应用，显式管理助手启动、检查点和退出清理。
-- `/`、`/api/*`、`/static/*`：原编辑器页面和接口。
-- `/assistant/`、`/assistant/api/*`：助手页面、聊天、SSE、附件和会话接口；与编辑器同源。
-- 编辑器继续使用 `rule_editor_new/rule_editor/config.yaml` 中的登录和 ADP 配置。账号、密码与 token 未修改。
-- 助手继续使用原 `.pi`、`config/mysql.json`、BOM 和检查点。统一运行时仅将编辑器校验 URL 和配置路径绑定到当前项目，不修改原配置文件。模型和外部数据库服务仍需可达。
+部署时保持单 worker：编辑器登录会话存于进程内。页面切换会重新加载，草稿和历史沿用原有存储恢复机制，未发送附件不跨页面保留。
 
-使用统一入口运行，保持单 worker；进程内登录会话不适合直接扩成多个 worker。编辑器原有重启时草稿恢复策略保持不变；整页跳转后不能承诺全部临时状态可恢复。
+## 项目结构
+
+```text
+.
+├── merged_app.py                 # 两套 ASGI 应用挂载与生命周期管理
+├── start.py / start.ps1          # 统一启动入口
+├── requirements.txt             # Python 依赖入口
+├── config-examples/             # 不含真实凭据的配置示例
+├── ar_agent开发/agent_1/airong_agent_test1/
+│   ├── langgraph_app/           # Agent 编排、模型、会话、编辑器适配
+│   ├── backend/                 # HTTP、SSE 和附件接口
+│   ├── tools/                   # BOM / 规则检索与工具桥接
+│   ├── web/                     # 助手前端
+│   ├── .pi/                     # 提示词、Skills 与模型选择配置
+│   └── tests/                   # Agent 回归检查
+├── rule_editor_new/             # 公司规则文档编辑器及转换、校验模块
+├── tests/                       # 合并入口与导航检查
+└── docs/                        # 开发、部署与交接文档
+```
+
+`legacy/pi` 保留历史实现，当前工作台的 Agent 运行层为 `langgraph_app`。
 
 ## 验证
 
-合并集成检查（不调用模型、不向 ADP 保存规则）：
+安装依赖并配置配套本地数据后，可运行合并集成检查与导航检查：
 
 ```powershell
-& '.\ar_agent开发\agent_1\airong_agent_test1\.venv-langgraph\Scripts\python.exe' -m unittest discover -s tests -v
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+node tests/navigation.cjs
 ```
 
-检查页面和资源、子应用生命周期、原登录门禁、带 Cookie 的候选搜索、标注、离线生成、助手附件接口和配置路径。`node tests/navigation.cjs` 检查顶部原生导航链接、整页跳转、旧 hash 地址兼容和接口前缀。
+合并测试涉及本地编辑器配置与数据。模型生成质量、外部数据库连通性和真实 ADP 上传需在目标环境单独验收；离线检查通过不能替代平台联调。
 
-本次验证：助手 Python 53 项、编辑器 Python 32 项、合并集成 4 项、原前端状态/复制及新增导航检查均通过，依赖 `pip check` 通过；实际临时启动单一 18009 端口，两个页面和助手 SSE 连接验证通过，测试服务已关闭。未执行真实浏览器视觉验收。真实模型生成质量、外部数据库可达性及 ADP 写入须在对应环境另行验收；本次不执行真实规则保存。
+## 开发文档
 
-两个业务目录中的历史说明包含原独立端口，合并部署以本说明为准。
+- [Agent 业务助手开发文档](docs/02_Agent业务助手开发文档.md)：LangGraph、模型、工具、SSE 与会话机制。
+- [文档编辑器开发文档](docs/01_文档编辑器开发文档.md)：BOM、注册表、规则语法及转换校验。
+- [项目启动部署文档](docs/03_项目启动部署文档.md)：安装配置、部署与排障。
+- [分发版配置说明](GITHUB_SETUP.md)：克隆后的配置及业务数据准备。
+
+## 版本管理与许可
+
+`.gitignore` 已排除本地密钥和配置、业务数据、数据库、依赖目录、日志、缓存、构建产物和临时工作区。运行配置使用 `config-examples/` 中的示例自行创建。
+
+当前项目未附带开源许可证；第三方资源遵循各自许可。
