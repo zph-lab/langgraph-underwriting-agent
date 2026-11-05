@@ -1,0 +1,17 @@
+{
+  "name": "airong-agent-test1",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "核保规则业务助手：pi 扩展（.pi/extensions）+ 检索核心（tools/）",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "rule-search": "node tools/rule-search.mjs",
+    "bom-search": "node tools/bom-search.mjs"
+  },
+  "dependencies": {
+    "mysql2": "^3.24.5"
+  }
+}

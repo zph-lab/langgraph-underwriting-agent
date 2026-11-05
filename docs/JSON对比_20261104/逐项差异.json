@@ -1,0 +1,107 @@
+[
+  {
+    "path": "$.left.left.left.left.left.left.left.left.codeService",
+    "correct": "carVehiclePowerTypeService",
+    "editor": "<missing>"
+  },
+  {
+    "path": "$.left.left.left.left.left.left.left.left.fieldId",
+    "correct": "de090cdaefa840068947eb08d7ae46bf",
+    "editor": "e796e52f21644cc2a7944e5a1bf51b67"
+  },
+  {
+    "path": "$.left.left.left.left.left.left.left.right.fieldId",
+    "correct": "a8c8bf8cb889415fb979354d62b35218",
+    "editor": "8a6585243a2f4a8bad08da026ed74e4d"
+  },
+  {
+    "path": "$.left.left.left.left.left.left.right.left.codeService",
+    "correct": "carProposalTypeService",
+    "editor": "<missing>"
+  },
+  {
+    "path": "$.left.left.left.left.left.left.right.left.fieldId",
+    "correct": "1deef586112d465e93c395441ae9c256",
+    "editor": "da331d0e64dc4f5b9ce5380f4325039c"
+  },
+  {
+    "path": "$.left.left.left.left.left.left.right.right.fieldId",
+    "correct": "46a6300606824ab4968626b9c8e0f206",
+    "editor": "91fcda26b9c74032a64090411085255d"
+  },
+  {
+    "path": "$.left.left.left.left.left.right.left.fieldId",
+    "correct": "91c5379b2a334eaa8927de076d7714e4",
+    "editor": "807cc2b26df946b09aaab8bc3747615a"
+  },
+  {
+    "path": "$.left.left.left.left.right.left.fieldId",
+    "correct": "98d3d5bc2c27462d8b486d4d3c1300bd",
+    "editor": "90affe476fd54752ba840c6bd41e75ef"
+  },
+  {
+    "path": "$.left.left.left.right.left.fieldId",
+    "correct": "47f3b56f60574db8990377f63d434eb7",
+    "editor": "ccc7cf7dd831445db0983bbfa7922d81"
+  },
+  {
+    "path": "$.left.left.right.left.paramValue.param1.fieldId",
+    "correct": "8987801eb4f84ced96b329070f6b3c27",
+    "editor": "bc1227747add4be89d9b2e3565e78911"
+  },
+  {
+    "path": "$.left.right.left.left.fieldId",
+    "correct": "40e52311872149f2bddf366ee124c8dc",
+    "editor": "b4ba172471a343ef881f775f171dfa8b"
+  },
+  {
+    "path": "$.left.right.right.left.fieldId",
+    "correct": "fadf4f00d6914daaba5c84b33bb41233",
+    "editor": "516146dcc214469ca8677aa39f250358"
+  },
+  {
+    "path": "$.right.left.left.left.left.left.left.left.fieldId",
+    "correct": "51b26f05731942478567fa6350b86f47",
+    "editor": "6fce50e146ca41e58e9dae2a1e75ca87"
+  },
+  {
+    "path": "$.right.left.left.left.left.left.right.left.codeService",
+    "correct": "carCusetypService",
+    "editor": "<missing>"
+  },
+  {
+    "path": "$.right.left.left.left.left.left.right.left.fieldId",
+    "correct": "2fcd5c653ef04570b2538c34545ceca0",
+    "editor": "c82ba1f830c249a4a5ca272ddc51c7df"
+  },
+  {
+    "path": "$.right.left.left.left.left.left.right.right.fieldId",
+    "correct": "783eb9ec84d3434883d8d809bace6579",
+    "editor": "19abeacd994946488c8070b356cc4139"
+  },
+  {
+    "path": "$.right.left.left.left.left.right.left.left.fieldId",
+    "correct": "40e52311872149f2bddf366ee124c8dc",
+    "editor": "b4ba172471a343ef881f775f171dfa8b"
+  },
+  {
+    "path": "$.right.left.left.left.left.right.right.left.fieldId",
+    "correct": "fadf4f00d6914daaba5c84b33bb41233",
+    "editor": "516146dcc214469ca8677aa39f250358"
+  },
+  {
+    "path": "$.right.left.left.left.right.left.paramValue.param1.fieldId",
+    "correct": "8987801eb4f84ced96b329070f6b3c27",
+    "editor": "bc1227747add4be89d9b2e3565e78911"
+  },
+  {
+    "path": "$.right.left.left.right.paramValue.param1.fieldId",
+    "correct": "34fd1dca7c5b473d8bce4cd2a5b565cc",
+    "editor": "41b0ac776ff14f3ab196530f056d9e3a"
+  },
+  {
+    "path": "$.right.left.right.left.paramValue.param1.fieldId",
+    "correct": "8015d59ba5e84fac89c7be8fc73c6e95",
+    "editor": "88c3f0e704f34948977c442681dc1768"
+  }
+]

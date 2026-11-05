@@ -1,0 +1,37 @@
+# 本地配置与密钥
+airong_agent_test1/config/
+airong_agent_test1/.pi/models.json
+airong_agent_origin/.pi/models.json
+airong_agent_test1/docs/mysql.txt
+
+# Python 缓存
+.venv/
+.venv-langgraph/
+.pytest_cache/
+.test-*/
+.cache/
+pytest-cache-files-*/
+__pycache__/
+*.py[cod]
+
+# SQLite 运行时附属文件（数据库本体 bom.sqlite3 仍保留跟踪）
+*.sqlite3-shm
+*.sqlite3-wal
+*.db-shm
+*.db-wal
+
+# 依赖与构建产物
+node_modules/
+dist/
+*.tsbuildinfo
+
+# 日志与临时文件
+*.log
+*.tmp
+
+# 操作系统 / 编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/

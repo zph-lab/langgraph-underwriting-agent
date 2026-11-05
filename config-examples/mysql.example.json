@@ -1,0 +1,23 @@
+{
+  "mysql": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "user": "YOUR_DB_USER",
+    "password": "YOUR_DB_PASSWORD",
+    "database": "YOUR_DATABASE",
+    "connectTimeoutMs": 10000,
+    "statementTimeoutMs": 15000
+  },
+  "ruleSearch": {
+    "bomBaseInfoId": "YOUR_BOMBASEINFOID",
+    "bomBaseInfoName": "YOUR_BOMBASEINFONAME",
+    "defaultLimit": 10,
+    "maxLimit": 50,
+    "fetchFactor": 5,
+    "retry": {
+      "maxAttempts": 3,
+      "baseDelayMs": 300,
+      "maxDelayMs": 3000
+    }
+  }
+}

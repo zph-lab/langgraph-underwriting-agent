@@ -1,0 +1,10 @@
+{
+  "defaultProvider": "deepseek",
+  "defaultModel": "deepseek-v4-pro",
+  "defaultTools": [],
+  "extensions": [
+    "-builtin:codemode",
+    "-builtin:tool-search",
+    "-builtin:mcp"
+  ]
+}

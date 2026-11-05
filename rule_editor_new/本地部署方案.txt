@@ -1,0 +1,29 @@
+# 1. 建虚拟环境（项目根目录下执行；环境名 rule_editor，勿提交进 git，加进 .gitignore）
+python -m venv rule_editor
+
+# 2. 激活
+# Linux/macOS:
+source rule_editor/bin/activate
+# Windows PowerShell:
+rule_editor\Scripts\Activate.ps1
+# Windows cmd:
+rule_editor\Scripts\activate.bat
+# PowerShell 报执行策略错误时先执行：Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+
+# 激活后确认用的是虚拟环境：where python（Win）/ which python（Linux）应指向 rule_editor/ 下
+
+# 3. 安装依赖
+python -m pip install -r rule_editor/requirements.txt
+
+# 4.（可选）生成 ETL 产物 —— data/ 目录已随代码拷过来就跳过这步
+python -m rule_editor.etl.run_etl
+
+# 5.（可选）生成方法注册表 —— data 里已带 bom_methods_新车险915.json ；
+#    换了 BOM 表或 rule_model.txt 必跑，且要在启动服务之前
+python desc_to_rulecontent/write_rule_to_adp.py --gen-methods-model "新车险915/bom.json" --model-methods "新车险915/rule_model.txt"
+
+# 6. 启动服务（默认 8010）可在rule_editor\config.yaml配置
+python -m rule_editor.api.main
+
+# 7. 验证
+http://127.0.0.1:8010/api/health

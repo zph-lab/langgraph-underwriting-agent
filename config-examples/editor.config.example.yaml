@@ -1,0 +1,45 @@
+data:
+  bom_path: 新车险915/bom.json
+  samples_dir: 新车险915
+  samples_glob: '*_samples.jsonl'
+  output_dir: data
+  repository_file: 新车险915/repository.txt
+  catalogue_file: 新车险915/respository_cata.txt
+etl:
+  bom_db: data/bom_catalog.sqlite
+  value_dict_db: data/value_dict.sqlite
+  freq_stats_db: data/freq_stats.sqlite
+  corpus_db: data/corpus_index.sqlite
+search:
+  top_k: 10
+  use_semantic: false
+  bm25_enabled: true
+  bm25_top_k: 20
+candidate:
+  default_top: 8
+  w_freq: 1.0
+  w_object: 0.5
+  w_semantic: 0.0
+llm:
+  enabled: false
+  provider: mock
+  endpoint: ''
+  api_key: ''
+  model: ''
+  schema: {}
+server:
+  host: 0.0.0.0
+  port: 8009
+  reload: false
+login:
+  enabled: true
+  username: ''
+  password: ''
+upload:
+  url: http://127.0.0.1:8009
+  rule_name: 测试接口
+  bom_base_info_id: YOUR_BOM_BASE_INFO_ID
+  bom_model_id: YOUR_BOM_MODEL_ID
+  token: ''
+logging:
+  level: INFO

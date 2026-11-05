@@ -1,0 +1,3960 @@
+{
+ "source": "非车销售/*_samples.jsonl 的 thenList/elseList 提取（仅非车销售 BOM）; 合并 rule_model.txt 全量方法",
+ "generated_at": "2026-09-02 09:50:17",
+ "count": 303,
+ "bom_methods": [
+  {
+   "methodId": "ResultXom_addFeeRateForRound_5",
+   "methodName": null,
+   "expressionId": "ResultXom_addFeeRateForRound_5",
+   "expressionArray": [
+    {
+     "id": "ResultXom_addFeeRateForRound_5_0_0",
+     "type": "text",
+     "desc": "向结果增加销售费用率为："
+    },
+    {
+     "id": "ResultXom_addFeeRateForRound_5_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "double",
+     "desc": "<数字参数>"
+    },
+    {
+     "id": "ResultXom_addFeeRateForRound_5_0_1",
+     "type": "text",
+     "desc": ", 规则名称为:"
+    },
+    {
+     "id": "ResultXom_addFeeRateForRound_5_2",
+     "type": "input",
+     "paramId": "param2",
+     "returnType": "string",
+     "desc": "动态域集的帮助的当前规则的名称"
+    },
+    {
+     "id": "ResultXom_addFeeRateForRound_5_0_2",
+     "type": "text",
+     "desc": ", 描述信息为: "
+    },
+    {
+     "id": "ResultXom_addFeeRateForRound_5_3",
+     "type": "input",
+     "paramId": "param3",
+     "returnType": "string",
+     "desc": "<字符串参数>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "30.5d",
+    "param2": "动态域集的帮助的当前规则的名称",
+    "param3": "\"063055_意外险员工福利保障计划费用率x%\""
+   },
+   "fieldParsings": {
+    "param1": "30.5d",
+    "param2": "${dynamicsAttributeList.Helper.getRuleName}",
+    "param3": "\"063055_意外险员工福利保障计划费用率x%\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "ResultXom_addFeeRateForRound_6",
+   "methodName": null,
+   "expressionId": "ResultXom_addFeeRateForRound_6",
+   "expressionArray": [
+    {
+     "id": "ResultXom_addFeeRateForRound_6_0_0",
+     "type": "text",
+     "desc": "向结果增加销售费用率,费用类型为："
+    },
+    {
+     "id": "ResultXom_addFeeRateForRound_6_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<字符串参数>",
+     "codeService": "feeTypeService"
+    },
+    {
+     "id": "ResultXom_addFeeRateForRound_6_0_1",
+     "type": "text",
+     "desc": ",销售费用率为："
+    },
+    {
+     "id": "ResultXom_addFeeRateForRound_6_2",
+     "type": "input",
+     "paramId": "param2",
+     "returnType": "double",
+     "desc": "<数字参数>"
+    },
+    {
+     "id": "ResultXom_addFeeRateForRound_6_0_2",
+     "type": "text",
+     "desc": ", 规则名称为:"
+    },
+    {
+     "id": "ResultXom_addFeeRateForRound_6_3",
+     "type": "input",
+     "paramId": "param3",
+     "returnType": "string",
+     "desc": "动态域集的帮助的当前规则的名称"
+    },
+    {
+     "id": "ResultXom_addFeeRateForRound_6_0_3",
+     "type": "text",
+     "desc": ", 描述信息为: "
+    },
+    {
+     "id": "ResultXom_addFeeRateForRound_6_4",
+     "type": "input",
+     "paramId": "param4",
+     "returnType": "string",
+     "desc": "<字符串参数>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "21.5d",
+    "param2": "动态域集的帮助的当前规则的名称",
+    "param3": "\"永安龙腾祥医疗保险费用率x%\""
+   },
+   "fieldParsings": {
+    "param1": "21.5d",
+    "param2": "${dynamicsAttributeList.Helper.getRuleName}",
+    "param3": "\"永安龙腾祥医疗保险费用率x%\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "ResultXom_addFeeAdjustmentRate_2",
+   "methodName": null,
+   "expressionId": "ResultXom_addFeeAdjustmentRate_2",
+   "expressionArray": [
+    {
+     "id": "ResultXom_addFeeAdjustmentRate_2_0_0",
+     "type": "text",
+     "desc": "向结果增加销售费用调节为："
+    },
+    {
+     "id": "ResultXom_addFeeAdjustmentRate_2_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "double",
+     "desc": "<数字参数>"
+    },
+    {
+     "id": "ResultXom_addFeeAdjustmentRate_2_0_1",
+     "type": "text",
+     "desc": ", 规则名称为:"
+    },
+    {
+     "id": "ResultXom_addFeeAdjustmentRate_2_2",
+     "type": "input",
+     "paramId": "param2",
+     "returnType": "string",
+     "desc": "动态域集的帮助的当前规则的名称"
+    },
+    {
+     "id": "ResultXom_addFeeAdjustmentRate_2_0_2",
+     "type": "text",
+     "desc": ", 描述信息为: "
+    },
+    {
+     "id": "ResultXom_addFeeAdjustmentRate_2_3",
+     "type": "input",
+     "paramId": "param3",
+     "returnType": "string",
+     "desc": "<字符串参数>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "-1",
+    "param2": "动态域集的帮助的当前规则的名称",
+    "param3": "\"直销渠道费用调节X%\""
+   },
+   "fieldParsings": {
+    "param1": "-1",
+    "param2": "${dynamicsAttributeList.Helper.getRuleName}",
+    "param3": "\"直销渠道费用调节X%\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_addMaxFeeRate_1",
+   "methodName": null,
+   "expressionId": "AppBase_addMaxFeeRate_1",
+   "expressionArray": [
+    {
+     "id": "AppBase_addMaxFeeRate_1_0_0",
+     "type": "text",
+     "desc": "向保单增加销售费用上限"
+    },
+    {
+     "id": "AppBase_addMaxFeeRate_1_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<字符串参数>",
+     "codeService": "feeTypeService"
+    },
+    {
+     "id": "AppBase_addMaxFeeRate_1_0_1",
+     "type": "text",
+     "desc": " 费用类型的费用率为："
+    },
+    {
+     "id": "AppBase_addMaxFeeRate_1_2",
+     "type": "input",
+     "paramId": "param2",
+     "returnType": "string",
+     "desc": "<费用率>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "123",
+    "param2": "123"
+   },
+   "fieldParsings": {
+    "param1": "123",
+    "param2": "123"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_setFeeInfoFinalRate_20",
+   "methodName": null,
+   "expressionId": "AppBase_setFeeInfoFinalRate_20",
+   "expressionArray": [
+    {
+     "id": "AppBase_setFeeInfoFinalRate_20_0_0",
+     "type": "text",
+     "desc": "设置保单销售费用"
+    },
+    {
+     "id": "AppBase_setFeeInfoFinalRate_20_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<字符串参数>",
+     "codeService": "feeTypeService"
+    },
+    {
+     "id": "AppBase_setFeeInfoFinalRate_20_0_1",
+     "type": "text",
+     "desc": " 费用类型的最终费用率为:"
+    },
+    {
+     "id": "AppBase_setFeeInfoFinalRate_20_2",
+     "type": "input",
+     "paramId": "param2",
+     "returnType": "double",
+     "desc": "<费用率>"
+    },
+    {
+     "id": "AppBase_setFeeInfoFinalRate_20_0_2",
+     "type": "text",
+     "desc": ", 规则名称为:"
+    },
+    {
+     "id": "AppBase_setFeeInfoFinalRate_20_3",
+     "type": "input",
+     "paramId": "param3",
+     "returnType": "string",
+     "desc": "动态域集的帮助的当前规则的名称"
+    },
+    {
+     "id": "AppBase_setFeeInfoFinalRate_20_0_3",
+     "type": "text",
+     "desc": ",  描述信息为: "
+    },
+    {
+     "id": "AppBase_setFeeInfoFinalRate_20_4",
+     "type": "input",
+     "paramId": "param4",
+     "returnType": "string",
+     "desc": "<描述信息>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "123",
+    "param2": "123",
+    "param3": "动态域集的帮助的当前规则的名称",
+    "param4": "11"
+   },
+   "fieldParsings": {
+    "param1": "123",
+    "param2": "123",
+    "param3": "${dynamicsAttributeList.Helper.getRuleName}",
+    "param4": "11"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "Helper_setMapXomListObjectAttributeOfSpecifiedFieldForDeveloper_110",
+   "methodName": null,
+   "expressionId": "Helper_setMapXomListObjectAttributeOfSpecifiedFieldForDeveloper_110",
+   "expressionArray": [
+    {
+     "id": "Helper_setMapXomListObjectAttributeOfSpecifiedFieldForDeveloper_110_0_0",
+     "type": "text",
+     "desc": "帮助.设置对象0的对象列表属性(开发人员使用)列表1的值为2，对象仅包含这些属性：3"
+    },
+    {
+     "id": "Helper_setMapXomListObjectAttributeOfSpecifiedFieldForDeveloper_110_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<帮助.设置对象0的对象列表属性(开发人员使用)列表1的值为2，对象仅包含这些属性：3>"
+    },
+    {
+     "id": "Helper_setMapXomListObjectAttributeOfSpecifiedFieldForDeveloper_110_2",
+     "type": "input",
+     "paramId": "param2",
+     "returnType": "string",
+     "desc": "<字符串参数>"
+    },
+    {
+     "id": "Helper_setMapXomListObjectAttributeOfSpecifiedFieldForDeveloper_110_3",
+     "type": "input",
+     "paramId": "param3",
+     "returnType": "string",
+     "desc": "<字符串参数>"
+    },
+    {
+     "id": "Helper_setMapXomListObjectAttributeOfSpecifiedFieldForDeveloper_110_4",
+     "type": "input",
+     "paramId": "param4",
+     "returnType": "string",
+     "desc": "<字符串参数>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "111",
+    "param2": "222",
+    "param3": "",
+    "param4": "333"
+   },
+   "fieldParsings": {
+    "param1": "111",
+    "param2": "222",
+    "param3": "",
+    "param4": "333"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_addEndorseInfoList_3",
+   "methodName": null,
+   "expressionId": "AppBase_addEndorseInfoList_3",
+   "expressionArray": [
+    {
+     "id": "AppBase_addEndorseInfoList_3_0_0",
+     "type": "text",
+     "desc": "向保单的批改信息列表中添加 "
+    },
+    {
+     "id": "AppBase_addEndorseInfoList_3_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<字符串参数>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "123"
+   },
+   "fieldParsings": {
+    "param1": "123"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_addInsuredInfoList_2",
+   "methodName": null,
+   "expressionId": "AppBase_addInsuredInfoList_2",
+   "expressionArray": [
+    {
+     "id": "AppBase_addInsuredInfoList_2_0_0",
+     "type": "text",
+     "desc": "向保单的被保人列表中添加 "
+    },
+    {
+     "id": "AppBase_addInsuredInfoList_2_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<字符串参数>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "321"
+   },
+   "fieldParsings": {
+    "param1": "321"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_migrateSetfloatRate",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetfloatRate",
+   "expressionArray": [
+    {
+     "id": "AppBase_migrateSetfloatRate_0_0",
+     "type": "text",
+     "desc": "设置保单的费率折扣系数为"
+    },
+    {
+     "id": "AppBase_migrateSetfloatRate_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "double",
+     "desc": "<设置保单的费率折扣系数为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "2"
+   },
+   "fieldParsings": {
+    "param1": "2"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "ResultXom_addUnderwriteRuleInfo_7",
+   "methodName": null,
+   "expressionId": "ResultXom_addUnderwriteRuleInfo_7",
+   "expressionArray": [
+    {
+     "id": "ResultXom_addUnderwriteRuleInfo_7_0_0",
+     "type": "text",
+     "desc": "向结果中增加"
+    },
+    {
+     "id": "ResultXom_addUnderwriteRuleInfo_7_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": " <核保结果>",
+     "codeService": "cUWReturnTypeService"
+    },
+    {
+     "id": "ResultXom_addUnderwriteRuleInfo_7_0_1",
+     "type": "text",
+     "desc": "， 规则编号为："
+    },
+    {
+     "id": "ResultXom_addUnderwriteRuleInfo_7_2",
+     "type": "input",
+     "paramId": "param2",
+     "returnType": "string",
+     "desc": "动态域集的帮助的当前规则的名称"
+    },
+    {
+     "id": "ResultXom_addUnderwriteRuleInfo_7_0_2",
+     "type": "text",
+     "desc": "，附加信息为"
+    },
+    {
+     "id": "ResultXom_addUnderwriteRuleInfo_7_3",
+     "type": "input",
+     "paramId": "param3",
+     "returnType": "string",
+     "desc": "<附加信息>"
+    },
+    {
+     "id": "ResultXom_addUnderwriteRuleInfo_7_0_3",
+     "type": "text",
+     "desc": " "
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "动态域集的核保结果的人工核保中级",
+    "param2": "动态域集的帮助的当前规则的名称",
+    "param3": "\"建意险补录倒签业务\""
+   },
+   "fieldParsings": {
+    "param1": "${dynamicsAttributeList.CUWReturnType.CUWReturnType_22}",
+    "param2": "${dynamicsAttributeList.Helper.getRuleName}",
+    "param3": "\"建意险补录倒签业务\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "MedicalRiskRsut_migrateSetrejectionMatches",
+   "methodName": null,
+   "expressionId": "MedicalRiskRsut_migrateSetrejectionMatches",
+   "expressionArray": [
+    {
+     "id": "MedicalRiskRsut_migrateSetrejectionMatches_0_0",
+     "type": "text",
+     "desc": "设置拒绝项匹配次数为"
+    },
+    {
+     "id": "MedicalRiskRsut_migrateSetrejectionMatches_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "integer",
+     "desc": "<设置拒绝项匹配次数为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "保单的中保信智能风控原始结果的个人健康险风控结果（补偿医疗）的拒绝项匹配次数+1"
+   },
+   "fieldParsings": {
+    "param1": "${appbase.sinosureRiskRsut.medicalRiskRsut.rejectionMatches}+1"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "MajorDiseasesRiskRsut_migrateSetrejectionMatches",
+   "methodName": null,
+   "expressionId": "MajorDiseasesRiskRsut_migrateSetrejectionMatches",
+   "expressionArray": [
+    {
+     "id": "MajorDiseasesRiskRsut_migrateSetrejectionMatches_0_0",
+     "type": "text",
+     "desc": "设置拒绝项匹配次数为"
+    },
+    {
+     "id": "MajorDiseasesRiskRsut_migrateSetrejectionMatches_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "integer",
+     "desc": "<设置拒绝项匹配次数为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "保单的中保信智能风控原始结果的个人健康险风控结果（重大疾病）的拒绝项匹配次数+1"
+   },
+   "fieldParsings": {
+    "param1": "${appbase.sinosureRiskRsut.majorDiseasesRiskRsut.rejectionMatches}+1"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "TempInfo_migrateSetoriginalPolicyStatus",
+   "methodName": null,
+   "expressionId": "TempInfo_migrateSetoriginalPolicyStatus",
+   "expressionArray": [
+    {
+     "id": "TempInfo_migrateSetoriginalPolicyStatus_0_0",
+     "type": "text",
+     "desc": "设置临时信息的原保单最终核保等级为"
+    },
+    {
+     "id": "TempInfo_migrateSetoriginalPolicyStatus_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置临时信息的原保单最终核保等级为>",
+     "codeService": "cUWReturnTypeService"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "保单的原保单最终核保等级"
+   },
+   "fieldParsings": {
+    "param1": "${appbase.originalPolicyStatus}"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_migrateSetoriginalPolicyStatus",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetoriginalPolicyStatus",
+   "expressionArray": [
+    {
+     "id": "AppBase_migrateSetoriginalPolicyStatus_0_0",
+     "type": "text",
+     "desc": "设置保单的原保单最终核保等级为"
+    },
+    {
+     "id": "AppBase_migrateSetoriginalPolicyStatus_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置保单的原保单最终核保等级为>",
+     "codeService": "cUWReturnTypeService"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "动态域集的核保结果的自核通过"
+   },
+   "fieldParsings": {
+    "param1": "${dynamicsAttributeList.CUWReturnType.CUWReturnType_10}"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_migrateSetuwsign",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetuwsign",
+   "expressionArray": [
+    {
+     "id": "AppBase_migrateSetuwsign_0_0",
+     "type": "text",
+     "desc": "设置保单的强制转人工为"
+    },
+    {
+     "id": "AppBase_migrateSetuwsign_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "boolean",
+     "desc": "<设置保单的强制转人工为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "false"
+   },
+   "fieldParsings": {
+    "param1": "false"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_migrateSetstrongFlow",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetstrongFlow",
+   "expressionArray": [
+    {
+     "id": "AppBase_migrateSetstrongFlow_0_0",
+     "type": "text",
+     "desc": "设置保单的强制流向为"
+    },
+    {
+     "id": "AppBase_migrateSetstrongFlow_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "boolean",
+     "desc": "<设置保单的强制流向为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "true"
+   },
+   "fieldParsings": {
+    "param1": "true"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "Helper_setMapXomStringAttributeForDeveloper_112",
+   "methodName": null,
+   "expressionId": "Helper_setMapXomStringAttributeForDeveloper_112",
+   "expressionArray": [
+    {
+     "id": "Helper_setMapXomStringAttributeForDeveloper_112_0_0",
+     "type": "text",
+     "desc": "帮助.设置对象0的字符串属性(开发人员使用)1的值为2"
+    },
+    {
+     "id": "Helper_setMapXomStringAttributeForDeveloper_112_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<帮助.设置对象0的字符串属性(开发人员使用)1的值为2>"
+    },
+    {
+     "id": "Helper_setMapXomStringAttributeForDeveloper_112_2",
+     "type": "input",
+     "paramId": "param2",
+     "returnType": "string",
+     "desc": "<字符串参数>"
+    },
+    {
+     "id": "Helper_setMapXomStringAttributeForDeveloper_112_3",
+     "type": "input",
+     "paramId": "param3",
+     "returnType": "string",
+     "desc": "<字符串参数>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "保单",
+    "param2": "\"csubdptClassify\"",
+    "param3": "\"A\""
+   },
+   "fieldParsings": {
+    "param1": "${appbase}",
+    "param2": "\"csubdptClassify\"",
+    "param3": "\"A\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "Helper_correctProductLifeInfo06_9",
+   "methodName": null,
+   "expressionId": "Helper_correctProductLifeInfo06_9",
+   "expressionArray": [
+    {
+     "id": "Helper_correctProductLifeInfo06_9_0_0",
+     "type": "text",
+     "desc": "帮助.0修正人身险信息(063013)对象名传值"
+    },
+    {
+     "id": "Helper_correctProductLifeInfo06_9_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<帮助.0修正人身险信息(063013)对象名传值>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "保单"
+   },
+   "fieldParsings": {
+    "param1": "${appbase}"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "Coverage060001_migrateSetccvrgno",
+   "methodName": null,
+   "expressionId": "Coverage060001_migrateSetccvrgno",
+   "expressionArray": [
+    {
+     "id": "Coverage060001_migrateSetccvrgno_0_0",
+     "type": "text",
+     "desc": "设置060001旅游观光景点、娱乐场所意外险险别代码为"
+    },
+    {
+     "id": "Coverage060001_migrateSetccvrgno_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置060001旅游观光景点、娱乐场所意外险险别代码为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "\"066102\""
+   },
+   "fieldParsings": {
+    "param1": "\"066102\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "Coverage060007_migrateSetccvrgno",
+   "methodName": null,
+   "expressionId": "Coverage060007_migrateSetccvrgno",
+   "expressionArray": [
+    {
+     "id": "Coverage060007_migrateSetccvrgno_0_0",
+     "type": "text",
+     "desc": "设置060007建筑工程团体人身意外伤害保险(2010)险别代码为"
+    },
+    {
+     "id": "Coverage060007_migrateSetccvrgno_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置060007建筑工程团体人身意外伤害保险(2010)险别代码为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "\"060623\""
+   },
+   "fieldParsings": {
+    "param1": "\"060623\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "Coverage060008_migrateSetccvrgno",
+   "methodName": null,
+   "expressionId": "Coverage060008_migrateSetccvrgno",
+   "expressionArray": [
+    {
+     "id": "Coverage060008_migrateSetccvrgno_0_0",
+     "type": "text",
+     "desc": "设置060008建筑工程团体人身意外伤害保险（浙江）险别代码为"
+    },
+    {
+     "id": "Coverage060008_migrateSetccvrgno_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置060008建筑工程团体人身意外伤害保险（浙江）险别代码为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "\"060703\""
+   },
+   "fieldParsings": {
+    "param1": "\"060703\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "Coverage060010_migrateSetccvrgno",
+   "methodName": null,
+   "expressionId": "Coverage060010_migrateSetccvrgno",
+   "expressionArray": [
+    {
+     "id": "Coverage060010_migrateSetccvrgno_0_0",
+     "type": "text",
+     "desc": "设置060010航空旅客意外伤害保险险别代码为"
+    },
+    {
+     "id": "Coverage060010_migrateSetccvrgno_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置060010航空旅客意外伤害保险险别代码为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "\"060615\""
+   },
+   "fieldParsings": {
+    "param1": "\"060615\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "Coverage060024_migrateSetccvrgno",
+   "methodName": null,
+   "expressionId": "Coverage060024_migrateSetccvrgno",
+   "expressionArray": [
+    {
+     "id": "Coverage060024_migrateSetccvrgno_0_0",
+     "type": "text",
+     "desc": "设置060024如意行人身意外伤害保险险别代码为"
+    },
+    {
+     "id": "Coverage060024_migrateSetccvrgno_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置060024如意行人身意外伤害保险险别代码为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "\"060087\""
+   },
+   "fieldParsings": {
+    "param1": "\"060087\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "Coverage060037_migrateSetccvrgno",
+   "methodName": null,
+   "expressionId": "Coverage060037_migrateSetccvrgno",
+   "expressionArray": [
+    {
+     "id": "Coverage060037_migrateSetccvrgno_0_0",
+     "type": "text",
+     "desc": "设置060037母婴安康保险险别代码为"
+    },
+    {
+     "id": "Coverage060037_migrateSetccvrgno_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置060037母婴安康保险险别代码为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "\"060102\""
+   },
+   "fieldParsings": {
+    "param1": "\"060102\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "Coverage060038_migrateSetccvrgno",
+   "methodName": null,
+   "expressionId": "Coverage060038_migrateSetccvrgno",
+   "expressionArray": [
+    {
+     "id": "Coverage060038_migrateSetccvrgno_0_0",
+     "type": "text",
+     "desc": "设置060038借款人意外伤害保险（2009版）险别代码为"
+    },
+    {
+     "id": "Coverage060038_migrateSetccvrgno_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置060038借款人意外伤害保险（2009版）险别代码为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "\"060051\""
+   },
+   "fieldParsings": {
+    "param1": "\"060051\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "Coverage061002_migrateSetccvrgno",
+   "methodName": null,
+   "expressionId": "Coverage061002_migrateSetccvrgno",
+   "expressionArray": [
+    {
+     "id": "Coverage061002_migrateSetccvrgno_0_0",
+     "type": "text",
+     "desc": "设置061002人身意外伤害保险险别代码为"
+    },
+    {
+     "id": "Coverage061002_migrateSetccvrgno_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置061002人身意外伤害保险险别代码为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "\"060151\""
+   },
+   "fieldParsings": {
+    "param1": "\"060151\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "Coverage062008_migrateSetccvrgno",
+   "methodName": null,
+   "expressionId": "Coverage062008_migrateSetccvrgno",
+   "expressionArray": [
+    {
+     "id": "Coverage062008_migrateSetccvrgno_0_0",
+     "type": "text",
+     "desc": "设置062008借款人意外伤害保险B款险别代码为"
+    },
+    {
+     "id": "Coverage062008_migrateSetccvrgno_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置062008借款人意外伤害保险B款险别代码为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "\"060051\""
+   },
+   "fieldParsings": {
+    "param1": "\"060051\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "Coverage063006_migrateSetccvrgno",
+   "methodName": null,
+   "expressionId": "Coverage063006_migrateSetccvrgno",
+   "expressionArray": [
+    {
+     "id": "Coverage063006_migrateSetccvrgno_0_0",
+     "type": "text",
+     "desc": "设置063006短期综合团体意外伤害保险险别代码为"
+    },
+    {
+     "id": "Coverage063006_migrateSetccvrgno_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置063006短期综合团体意外伤害保险险别代码为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "\"060102\""
+   },
+   "fieldParsings": {
+    "param1": "\"060102\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "Coverage063018_migrateSetccvrgno",
+   "methodName": null,
+   "expressionId": "Coverage063018_migrateSetccvrgno",
+   "expressionArray": [
+    {
+     "id": "Coverage063018_migrateSetccvrgno_0_0",
+     "type": "text",
+     "desc": "设置063018全球身故及意外伤害保险险别代码为"
+    },
+    {
+     "id": "Coverage063018_migrateSetccvrgno_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置063018全球身故及意外伤害保险险别代码为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "\"063118\""
+   },
+   "fieldParsings": {
+    "param1": "\"063118\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "ProductLifeObjInfo06_migrateSetctgttxtfld9Result",
+   "methodName": null,
+   "expressionId": "ProductLifeObjInfo06_migrateSetctgttxtfld9Result",
+   "expressionArray": [
+    {
+     "id": "ProductLifeObjInfo06_migrateSetctgttxtfld9Result_0_0",
+     "type": "text",
+     "desc": "设置健康告知结果为"
+    },
+    {
+     "id": "ProductLifeObjInfo06_migrateSetctgttxtfld9Result_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置健康告知结果为>",
+     "codeService": "ctgttxtfld9_ResultService"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "动态域集的健康告知结果的全否"
+   },
+   "fieldParsings": {
+    "param1": "${dynamicsAttributeList.ctgttxtfld9_Result.ctgttxtfld9_1}"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "InsuredInfo_migrateSetinsuredCategory",
+   "methodName": null,
+   "expressionId": "InsuredInfo_migrateSetinsuredCategory",
+   "expressionArray": [
+    {
+     "id": "InsuredInfo_migrateSetinsuredCategory_0_0",
+     "type": "text",
+     "desc": "设置被保人类别为"
+    },
+    {
+     "id": "InsuredInfo_migrateSetinsuredCategory_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置被保人类别为>",
+     "codeService": "insuredCategoryService"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "动态域集的被保人类别的不区分类别"
+   },
+   "fieldParsings": {
+    "param1": "${dynamicsAttributeList.InsuredCategory.InsuredCategory_810003}"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "GeneralInfo_migrateSetpropertyNamtSummation",
+   "methodName": null,
+   "expressionId": "GeneralInfo_migrateSetpropertyNamtSummation",
+   "expressionArray": [
+    {
+     "id": "GeneralInfo_migrateSetpropertyNamtSummation_0_0",
+     "type": "text",
+     "desc": "设置资产保额累加值为"
+    },
+    {
+     "id": "GeneralInfo_migrateSetpropertyNamtSummation_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "double",
+     "desc": "<设置资产保额累加值为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "动态域集的帮助的帮助.0保留1位小数((保单的临时细信息的通用信息的资产保额累加值 + 规则预定义变量的当前险别的保额/限额(元)),  2)"
+   },
+   "fieldParsings": {
+    "param1": "${dynamicsAttributeList.Helper.round2((appbase.tempInfo.generalInfo.propertyNamtSummation + 规则预定义变量.当前险别.namt),  2)}"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_migrateSetcprjctgtyp",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetcprjctgtyp",
+   "expressionArray": [
+    {
+     "id": "AppBase_migrateSetcprjctgtyp_0_0",
+     "type": "text",
+     "desc": "设置保单的项目类别大类为"
+    },
+    {
+     "id": "AppBase_migrateSetcprjctgtyp_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置保单的项目类别大类为>",
+     "codeService": "cPrjCtgTypService"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "动态域集的项目类别大类的大通保"
+   },
+   "fieldParsings": {
+    "param1": "${dynamicsAttributeList.CPrjCtgTyp.CPrjCtgTyp_116041}"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "ResultXom_migrateSetnprm",
+   "methodName": null,
+   "expressionId": "ResultXom_migrateSetnprm",
+   "expressionArray": [
+    {
+     "id": "ResultXom_migrateSetnprm_0_0",
+     "type": "text",
+     "desc": "设置结果的总保费为"
+    },
+    {
+     "id": "ResultXom_migrateSetnprm_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "double",
+     "desc": "<设置结果的总保费为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "动态域集的帮助的帮助.0保留1位小数((保单的保费合计 * 保单的保费合计RmbExch),  2)"
+   },
+   "fieldParsings": {
+    "param1": "${dynamicsAttributeList.Helper.round2((appbase.nprm * appbase.nprmRmbExch),  2)}"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_migrateSetrelatedBusiness2Person",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetrelatedBusiness2Person",
+   "expressionArray": [
+    {
+     "id": "AppBase_migrateSetrelatedBusiness2Person_0_0",
+     "type": "text",
+     "desc": "设置保单的关联交易业务2_个人为"
+    },
+    {
+     "id": "AppBase_migrateSetrelatedBusiness2Person_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "boolean",
+     "desc": "<设置保单的关联交易业务2_个人为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "true"
+   },
+   "fieldParsings": {
+    "param1": "true"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_migrateSetrelatedBusiness2Enterprise",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetrelatedBusiness2Enterprise",
+   "expressionArray": [
+    {
+     "id": "AppBase_migrateSetrelatedBusiness2Enterprise_0_0",
+     "type": "text",
+     "desc": "设置保单的关联交易业务2_企业为"
+    },
+    {
+     "id": "AppBase_migrateSetrelatedBusiness2Enterprise_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "boolean",
+     "desc": "<设置保单的关联交易业务2_企业为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "true"
+   },
+   "fieldParsings": {
+    "param1": "true"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_migrateSetisClient",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetisClient",
+   "expressionArray": [
+    {
+     "id": "AppBase_migrateSetisClient_0_0",
+     "type": "text",
+     "desc": "设置保单的C端客户为"
+    },
+    {
+     "id": "AppBase_migrateSetisClient_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "boolean",
+     "desc": "<设置保单的C端客户为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "true"
+   },
+   "fieldParsings": {
+    "param1": "true"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_migrateSetisCpFlag",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetisCpFlag",
+   "expressionArray": [
+    {
+     "id": "AppBase_migrateSetisCpFlag_0_0",
+     "type": "text",
+     "desc": "设置保单的保费计算为"
+    },
+    {
+     "id": "AppBase_migrateSetisCpFlag_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "boolean",
+     "desc": "<设置保单的保费计算为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "true"
+   },
+   "fieldParsings": {
+    "param1": "true"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_migrateSetcishare",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetcishare",
+   "expressionArray": [
+    {
+     "id": "AppBase_migrateSetcishare_0_0",
+     "type": "text",
+     "desc": "设置保单的共保比例为"
+    },
+    {
+     "id": "AppBase_migrateSetcishare_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "double",
+     "desc": "<设置保单的共保比例为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "1"
+   },
+   "fieldParsings": {
+    "param1": "1"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_migrateSetendorsePolicy",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetendorsePolicy",
+   "expressionArray": [
+    {
+     "id": "AppBase_migrateSetendorsePolicy_0_0",
+     "type": "text",
+     "desc": "设置保单的批单为"
+    },
+    {
+     "id": "AppBase_migrateSetendorsePolicy_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "boolean",
+     "desc": "<设置保单的批单为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "true"
+   },
+   "fieldParsings": {
+    "param1": "true"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_migrateSetisuwflag",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetisuwflag",
+   "expressionArray": [
+    {
+     "id": "AppBase_migrateSetisuwflag_0_0",
+     "type": "text",
+     "desc": "设置保单的核保为"
+    },
+    {
+     "id": "AppBase_migrateSetisuwflag_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "boolean",
+     "desc": "<设置保单的核保为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "true"
+   },
+   "fieldParsings": {
+    "param1": "true"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_migrateSetownBusiness",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetownBusiness",
+   "expressionArray": [
+    {
+     "id": "AppBase_migrateSetownBusiness_0_0",
+     "type": "text",
+     "desc": "设置保单的自有业务为"
+    },
+    {
+     "id": "AppBase_migrateSetownBusiness_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "boolean",
+     "desc": "<设置保单的自有业务为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "true"
+   },
+   "fieldParsings": {
+    "param1": "true"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_migrateSetisFeeCalculateFlag",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetisFeeCalculateFlag",
+   "expressionArray": [
+    {
+     "id": "AppBase_migrateSetisFeeCalculateFlag_0_0",
+     "type": "text",
+     "desc": "设置保单的计算销售费用为"
+    },
+    {
+     "id": "AppBase_migrateSetisFeeCalculateFlag_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "boolean",
+     "desc": "<设置保单的计算销售费用为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "true"
+   },
+   "fieldParsings": {
+    "param1": "true"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_migrateSetecargoInsurance",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetecargoInsurance",
+   "expressionArray": [
+    {
+     "id": "AppBase_migrateSetecargoInsurance_0_0",
+     "type": "text",
+     "desc": "设置保单的E-cargo货运险为"
+    },
+    {
+     "id": "AppBase_migrateSetecargoInsurance_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "boolean",
+     "desc": "<设置保单的E-cargo货运险为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "true"
+   },
+   "fieldParsings": {
+    "param1": "true"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_initLifeCoverageInsuredMinAge_13",
+   "methodName": null,
+   "expressionId": "AppBase_initLifeCoverageInsuredMinAge_13",
+   "expressionArray": [
+    {
+     "id": "AppBase_initLifeCoverageInsuredMinAge_13_0",
+     "type": "text",
+     "desc": "初始化保单的人身险险别列表的被保人最小年龄"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {},
+   "fieldParsings": {},
+   "methodPath": null
+  },
+  {
+   "methodId": "Helper_addMapXomListAttribute_4",
+   "methodName": null,
+   "expressionId": "Helper_addMapXomListAttribute_4",
+   "expressionArray": [
+    {
+     "id": "Helper_addMapXomListAttribute_4_0_0",
+     "type": "text",
+     "desc": "帮助.对象0下增加对象列表属性1"
+    },
+    {
+     "id": "Helper_addMapXomListAttribute_4_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<帮助.对象0下增加对象列表属性1>"
+    },
+    {
+     "id": "Helper_addMapXomListAttribute_4_2",
+     "type": "input",
+     "paramId": "param2",
+     "returnType": "string",
+     "desc": "<字符串参数>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "结果",
+    "param2": "\"cpRiskInfos\""
+   },
+   "fieldParsings": {
+    "param1": "${result}",
+    "param2": "\"cpRiskInfos\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "ResultXom_migrateSetrelatedBusiness",
+   "methodName": null,
+   "expressionId": "ResultXom_migrateSetrelatedBusiness",
+   "expressionArray": [
+    {
+     "id": "ResultXom_migrateSetrelatedBusiness_0_0",
+     "type": "text",
+     "desc": "设置结果的关联交易业务为"
+    },
+    {
+     "id": "ResultXom_migrateSetrelatedBusiness_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "boolean",
+     "desc": "<设置结果的关联交易业务为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "true"
+   },
+   "fieldParsings": {
+    "param1": "true"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_migrateSetfeeDockingBusinessSourceDetail",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetfeeDockingBusinessSourceDetail",
+   "expressionArray": [
+    {
+     "id": "AppBase_migrateSetfeeDockingBusinessSourceDetail_0_0",
+     "type": "text",
+     "desc": "设置保单的销售费用对接业务来源细分为"
+    },
+    {
+     "id": "AppBase_migrateSetfeeDockingBusinessSourceDetail_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置保单的销售费用对接业务来源细分为>",
+     "codeService": "feeDockingBusinessSourceDetailService"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "动态域集的销售费用对接业务来源细分的天地通保"
+   },
+   "fieldParsings": {
+    "param1": "${dynamicsAttributeList.FeeDockingBusinessSourceDetail.FeeDockingBusinessSourceDetail_1}"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "Helper_addMapXomAttribute_3",
+   "methodName": null,
+   "expressionId": "Helper_addMapXomAttribute_3",
+   "expressionArray": [
+    {
+     "id": "Helper_addMapXomAttribute_3_0_0",
+     "type": "text",
+     "desc": "帮助.对象0下增加对象属性1"
+    },
+    {
+     "id": "Helper_addMapXomAttribute_3_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<帮助.对象0下增加对象属性1>"
+    },
+    {
+     "id": "Helper_addMapXomAttribute_3_2",
+     "type": "input",
+     "paramId": "param2",
+     "returnType": "string",
+     "desc": "<字符串参数>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "保单的临时信息",
+    "param2": "\"previousRuleAppInfo\""
+   },
+   "fieldParsings": {
+    "param1": "${appbase.tempInfo}",
+    "param2": "\"previousRuleAppInfo\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "SalesFeeInfo_migrateSetheadFeeTypes",
+   "methodName": null,
+   "expressionId": "SalesFeeInfo_migrateSetheadFeeTypes",
+   "expressionArray": [
+    {
+     "id": "SalesFeeInfo_migrateSetheadFeeTypes_0_0",
+     "type": "text",
+     "desc": "设置总公司销售费用类型列表为"
+    },
+    {
+     "id": "SalesFeeInfo_migrateSetheadFeeTypes_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置总公司销售费用类型列表为>",
+     "codeService": "feeTypeService"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "\"A3,A5,A6\""
+   },
+   "fieldParsings": {
+    "param1": "\"A3,A5,A6\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "ResultXom_migrateSetpremiumCalculationInfo",
+   "methodName": null,
+   "expressionId": "ResultXom_migrateSetpremiumCalculationInfo",
+   "expressionArray": [
+    {
+     "id": "ResultXom_migrateSetpremiumCalculationInfo_0_0",
+     "type": "text",
+     "desc": "设置结果的保费计算信息为"
+    },
+    {
+     "id": "ResultXom_migrateSetpremiumCalculationInfo_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置结果的保费计算信息为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "\"无匹配费率，请核实信息。\""
+   },
+   "fieldParsings": {
+    "param1": "\"无匹配费率，请核实信息。\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "AppBase_migrateSetnresvnum29",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetnresvnum29",
+   "expressionArray": [
+    {
+     "id": "AppBase_migrateSetnresvnum29_0_0",
+     "type": "text",
+     "desc": "设置保单的投保份数为"
+    },
+    {
+     "id": "AppBase_migrateSetnresvnum29_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "integer",
+     "desc": "<设置保单的投保份数为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "规则预定义变量的当前险别的投保份数"
+   },
+   "fieldParsings": {
+    "param1": "${规则预定义变量.当前险别.nresvnum29}"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "ResultXom_addCpRiskInfo_1",
+   "methodName": null,
+   "expressionId": "ResultXom_addCpRiskInfo_1",
+   "expressionArray": [
+    {
+     "id": "ResultXom_addCpRiskInfo_1_0_0",
+     "type": "text",
+     "desc": "向结果增加保费计算险别信息(应缴保费:"
+    },
+    {
+     "id": "ResultXom_addCpRiskInfo_1_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<字符串参数>"
+    },
+    {
+     "id": "ResultXom_addCpRiskInfo_1_0_1",
+     "type": "text",
+     "desc": ", 险别代码:"
+    },
+    {
+     "id": "ResultXom_addCpRiskInfo_1_2",
+     "type": "input",
+     "paramId": "param2",
+     "returnType": "string",
+     "desc": "<字符串参数>"
+    },
+    {
+     "id": "ResultXom_addCpRiskInfo_1_0_2",
+     "type": "text",
+     "desc": ")"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "保单的人身险信息的063023永安康健一生医疗保险B款险别列表的应缴保费",
+    "param2": "保单的人身险信息的063023永安康健一生医疗保险B款险别列表的险别代码"
+   },
+   "fieldParsings": {
+    "param1": "${appbase.productLifeInfo06.coverage063023List.nprm}",
+    "param2": "${appbase.productLifeInfo06.coverage063023List.ccvrgno}"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "Helper_calInsuredRiskNprm_5",
+   "methodName": null,
+   "expressionId": "Helper_calInsuredRiskNprm_5",
+   "expressionArray": [
+    {
+     "id": "Helper_calInsuredRiskNprm_5_0_0",
+     "type": "text",
+     "desc": "帮助.计算0的应缴保费信息(产品信息:1,险别列表2)"
+    },
+    {
+     "id": "Helper_calInsuredRiskNprm_5_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<帮助.计算0的应缴保费信息(产品信息:1>"
+    },
+    {
+     "id": "Helper_calInsuredRiskNprm_5_0_1",
+     "type": "text",
+     "desc": "险别列表2)"
+    },
+    {
+     "id": "Helper_calInsuredRiskNprm_5_2",
+     "type": "input",
+     "paramId": "param2",
+     "returnType": "string",
+     "desc": "<险别列表2)>"
+    },
+    {
+     "id": "Helper_calInsuredRiskNprm_5_3",
+     "type": "input",
+     "paramId": "param3",
+     "returnType": "string",
+     "desc": "<字符串参数>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "保单",
+    "param2": "\"productLifeInfo06\"",
+    "param3": "\"coverage063048List\""
+   },
+   "fieldParsings": {
+    "param1": "${appbase}",
+    "param2": "\"productLifeInfo06\"",
+    "param3": "\"coverage063048List\""
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "SalesFeeInfo_migrateSetc1FeeMax",
+   "methodName": null,
+   "expressionId": "SalesFeeInfo_migrateSetc1FeeMax",
+   "expressionArray": [
+    {
+     "id": "SalesFeeInfo_migrateSetc1FeeMax_0_0",
+     "type": "text",
+     "desc": "设置C1费用上限为"
+    },
+    {
+     "id": "SalesFeeInfo_migrateSetc1FeeMax_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "double",
+     "desc": "<设置C1费用上限为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "18"
+   },
+   "fieldParsings": {
+    "param1": "18"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "SalesFeeInfo_migrateSetaFeeMax",
+   "methodName": null,
+   "expressionId": "SalesFeeInfo_migrateSetaFeeMax",
+   "expressionArray": [
+    {
+     "id": "SalesFeeInfo_migrateSetaFeeMax_0_0",
+     "type": "text",
+     "desc": "设置总公司销售费用类型列表为"
+    },
+    {
+     "id": "SalesFeeInfo_migrateSetaFeeMax_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "string",
+     "desc": "<设置总公司销售费用类型列表为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "33"
+   },
+   "fieldParsings": {
+    "param1": "33"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "TempInfo_migrateSetFeeDiscountLinkage",
+   "methodName": null,
+   "expressionId": "TempInfo_migrateSetFeeDiscountLinkage",
+   "expressionArray": [
+    {
+     "id": "TempInfo_migrateSetFeeDiscountLinkage_0_0",
+     "type": "text",
+     "desc": "设置费折联动值为"
+    },
+    {
+     "id": "TempInfo_migrateSetFeeDiscountLinkage_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "double",
+     "desc": "<设置费折联动值为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "( ( ( 保单的费率折扣系数- 1 ) * 0.5 + 保单的销售费用A的费用比率/ 100 ) / 保单的费率折扣系数) * 100"
+   },
+   "fieldParsings": {
+    "param1": "${(((appbase.floatRate - 1) * 0.5d + appbase.getFeeInfoRate(dynamicsAttributeList.FeeType.FeeType_A) / 100) / appbase.floatRate) * 100}"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "TempInfo_migrateSetAccHealthTotalPrem",
+   "methodName": null,
+   "expressionId": "TempInfo_migrateSetAccHealthTotalPrem",
+   "expressionArray": [
+    {
+     "id": "TempInfo_migrateSetAccHealthTotalPrem_0_0",
+     "type": "text",
+     "desc": "设置临时信息的意外险产品健康险别总保费为"
+    },
+    {
+     "id": "TempInfo_migrateSetAccHealthTotalPrem_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "double",
+     "desc": "<设置临时信息的意外险产品健康险别总保费为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "保单的临时信息的意外险产品健康险别总保费+规则预定义变量的当前险别的不含税保费合计"
+   },
+   "fieldParsings": {
+    "param1": "${appbase.tempInfo.accHealthTotalPrem+规则预定义变量.当前险别.noTaxPrm}"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "TempInfo_migrateSetAccHealthTaxRate",
+   "methodName": null,
+   "expressionId": "TempInfo_migrateSetAccHealthTaxRate",
+   "expressionArray": [
+    {
+     "id": "TempInfo_migrateSetAccHealthTaxRate_0_0",
+     "type": "text",
+     "desc": "设置临时信息的意外险产品健康险别税率为"
+    },
+    {
+     "id": "TempInfo_migrateSetAccHealthTaxRate_1",
+     "type": "input",
+     "paramId": "param1",
+     "returnType": "double",
+     "desc": "<设置临时信息的意外险产品健康险别税率为>"
+    }
+   ],
+   "returnType": null,
+   "codeService": null,
+   "beforeParamType": null,
+   "paramValue": {
+    "param1": "0.06"
+   },
+   "fieldParsings": {
+    "param1": "0.06"
+   },
+   "methodPath": null
+  },
+  {
+   "methodId": "Helper_setMapXomStringAttribute_111",
+   "methodName": null,
+   "expressionId": "Helper_setMapXomStringAttribute_111",
+   "label": "帮助.设置对象0的字符串属性1的值为2",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.Helper",
+   "methodName2": "setMapXomStringAttribute"
+  },
+  {
+   "methodId": "Helper_setMapXomListObjectAttributeForDeveloper_109",
+   "methodName": null,
+   "expressionId": "Helper_setMapXomListObjectAttributeForDeveloper_109",
+   "label": "帮助.设置对象0的对象列表属性(开发人员使用)1的值为2",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.Helper",
+   "methodName2": "setMapXomListObjectAttributeForDeveloper"
+  },
+  {
+   "methodId": "ProductPropertyObjInfo089018_addNseqList_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyObjInfo089018_addNseqList_1",
+   "label": "向财险089018建房保险 (浙江)标的列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyObjInfo089018",
+   "methodName2": "addNseqList"
+  },
+  {
+   "methodId": "ResultXom_addUnderwriteRuleInfos_4",
+   "methodName": null,
+   "expressionId": "ResultXom_addUnderwriteRuleInfos_4",
+   "label": "向结果的核保规则匹配信息列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ResultXom",
+   "methodName2": "addUnderwriteRuleInfos"
+  },
+  {
+   "methodId": "ResultXom_addMaxFeeInfos_7",
+   "methodName": null,
+   "expressionId": "ResultXom_addMaxFeeInfos_7",
+   "label": "向结果的费用上限列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ResultXom",
+   "methodName2": "addMaxFeeInfos"
+  },
+  {
+   "methodId": "ResultXom_addFeeInfos_2",
+   "methodName": null,
+   "expressionId": "ResultXom_addFeeInfos_2",
+   "label": "向结果的销售费用信息列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ResultXom",
+   "methodName2": "addFeeInfos"
+  },
+  {
+   "methodId": "ResultXom_addFeeRuleInfos_3",
+   "methodName": null,
+   "expressionId": "ResultXom_addFeeRuleInfos_3",
+   "label": "向结果的销售费用规则匹配信息列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ResultXom",
+   "methodName2": "addFeeRuleInfos"
+  },
+  {
+   "methodId": "ResultXom_addCpRiskInfos_5",
+   "methodName": null,
+   "expressionId": "ResultXom_addCpRiskInfos_5",
+   "label": "向结果的保费计算险别信息列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ResultXom",
+   "methodName2": "addCpRiskInfos"
+  },
+  {
+   "methodId": "ResultXom_addInsuredInfos_6",
+   "methodName": null,
+   "expressionId": "ResultXom_addInsuredInfos_6",
+   "label": "向结果的保费计算被保人列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ResultXom",
+   "methodName2": "addInsuredInfos"
+  },
+  {
+   "methodId": "ProductPropertyObjInfo080001_addNseqList_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyObjInfo080001_addNseqList_1",
+   "label": "向财险080001城市家庭财产保险标的列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyObjInfo080001",
+   "methodName2": "addNseqList"
+  },
+  {
+   "methodId": "ProductPropertyObjInfo01_addNseqList_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyObjInfo01_addNseqList_1",
+   "label": "向财险01企财险标的列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyObjInfo01",
+   "methodName2": "addNseqList"
+  },
+  {
+   "methodId": "ProductPropertyObjInfo08_addNseqList_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyObjInfo08_addNseqList_1",
+   "label": "向财险08家财险标的列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyObjInfo08",
+   "methodName2": "addNseqList"
+  },
+  {
+   "methodId": "ProductInfo16_2022_addProductCultiInfo162List_3",
+   "methodName": null,
+   "expressionId": "ProductInfo16_2022_addProductCultiInfo162List_3",
+   "label": "向162_2022农业养殖保险标的信息中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductInfo16_2022",
+   "methodName2": "addProductCultiInfo162List"
+  },
+  {
+   "methodId": "ProductInfo16_2022_addCoverageCulti162List_4",
+   "methodName": null,
+   "expressionId": "ProductInfo16_2022_addCoverageCulti162List_4",
+   "label": "向162_2022农业养殖保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductInfo16_2022",
+   "methodName2": "addCoverageCulti162List"
+  },
+  {
+   "methodId": "ProductInfo16_2022_addProductPlantInfo161List_1",
+   "methodName": null,
+   "expressionId": "ProductInfo16_2022_addProductPlantInfo161List_1",
+   "label": "向161_2022农业种植保险标的信息中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductInfo16_2022",
+   "methodName2": "addProductPlantInfo161List"
+  },
+  {
+   "methodId": "ProductInfo16_2022_addCoveragePlant161List_2",
+   "methodName": null,
+   "expressionId": "ProductInfo16_2022_addCoveragePlant161List_2",
+   "label": "向161_2022农业种植保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductInfo16_2022",
+   "methodName2": "addCoveragePlant161List"
+  },
+  {
+   "methodId": "ProductPropertyInfo16_addCoverage160001List_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo16_addCoverage160001List_1",
+   "label": "向160001农业种植保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo16",
+   "methodName2": "addCoverage160001List"
+  },
+  {
+   "methodId": "ProductPropertyInfo16_addCoverage162001List_2",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo16_addCoverage162001List_2",
+   "label": "向162001农业养殖保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo16",
+   "methodName2": "addCoverage162001List"
+  },
+  {
+   "methodId": "ProductPropertyInfo16_addCoverage160002List_3",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo16_addCoverage160002List_3",
+   "label": "向160002农作物火灾保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo16",
+   "methodName2": "addCoverage160002List"
+  },
+  {
+   "methodId": "ProductPropertyInfo16_addCoverage160003List_4",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo16_addCoverage160003List_4",
+   "label": "向160003养殖险指数保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo16",
+   "methodName2": "addCoverage160003List"
+  },
+  {
+   "methodId": "ProductPropertyInfo16_addCoverage160004List_5",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo16_addCoverage160004List_5",
+   "label": "向160004种植险指数保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo16",
+   "methodName2": "addCoverage160004List"
+  },
+  {
+   "methodId": "ProductPropertyInfo13_addCoverage130001List_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo13_addCoverage130001List_1",
+   "label": "向130001金融机构贷款损失信用保险险别信息中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo13",
+   "methodName2": "addCoverage130001List"
+  },
+  {
+   "methodId": "ProductPropertyInfo13_addCoverage130002List_2",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo13_addCoverage130002List_2",
+   "label": "向130002非银行金融机构贷款损失信用保险险别信息中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo13",
+   "methodName2": "addCoverage130002List"
+  },
+  {
+   "methodId": "ProductPropertyInfo13_addCoverage130003List_3",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo13_addCoverage130003List_3",
+   "label": "向130003金融机构个人小额贷款信用保险险别信息中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo13",
+   "methodName2": "addCoverage130003List"
+  },
+  {
+   "methodId": "ProductPropertyInfo12_addCoverage120001List_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo12_addCoverage120001List_1",
+   "label": "向120001航班延误及取消保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo12",
+   "methodName2": "addCoverage120001List"
+  },
+  {
+   "methodId": "ProductPropertyInfo12_addCoverage120005List_2",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo12_addCoverage120005List_2",
+   "label": "向120005个人账户资金安全保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo12",
+   "methodName2": "addCoverage120005List"
+  },
+  {
+   "methodId": "ProductPropertyInfo12_addCoverage120006List_3",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo12_addCoverage120006List_3",
+   "label": "向120006法律费用保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo12",
+   "methodName2": "addCoverage120006List"
+  },
+  {
+   "methodId": "ProductPropertyInfo12_addCoverage120008List_4",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo12_addCoverage120008List_4",
+   "label": "向120008知识产权维权费用保险产品险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo12",
+   "methodName2": "addCoverage120008List"
+  },
+  {
+   "methodId": "ProductPropertyInfo11_addCoverage110001List_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo11_addCoverage110001List_1",
+   "label": "向110001沿海、内河船舶保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo11",
+   "methodName2": "addCoverage110001List"
+  },
+  {
+   "methodId": "ProductPropertyInfo11_addCoverage110002List_2",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo11_addCoverage110002List_2",
+   "label": "向110002船舶建造保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo11",
+   "methodName2": "addCoverage110002List"
+  },
+  {
+   "methodId": "ProductPropertyInfo11_addCoverage110003List_3",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo11_addCoverage110003List_3",
+   "label": "向110003船舶保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo11",
+   "methodName2": "addCoverage110003List"
+  },
+  {
+   "methodId": "ProductPropertyInfo11_addCoverage110004List_4",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo11_addCoverage110004List_4",
+   "label": "向110004远洋渔船保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo11",
+   "methodName2": "addCoverage110004List"
+  },
+  {
+   "methodId": "ProductPropertyInfo11_addCoverage110005List_5",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo11_addCoverage110005List_5",
+   "label": "向110005沿海内河渔船保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo11",
+   "methodName2": "addCoverage110005List"
+  },
+  {
+   "methodId": "ProductPropertyInfo11_addCoverage110006List_6",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo11_addCoverage110006List_6",
+   "label": "向110006集装箱（定期）保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo11",
+   "methodName2": "addCoverage110006List"
+  },
+  {
+   "methodId": "InsuredInfoXom_addCpRiskInfoList_1",
+   "methodName": null,
+   "expressionId": "InsuredInfoXom_addCpRiskInfoList_1",
+   "label": "向被保人险别信息列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.InsuredInfoXom",
+   "methodName2": "addCpRiskInfoList"
+  },
+  {
+   "methodId": "ProductPropertyInfo09_addCoverage090002List_2",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo09_addCoverage090002List_2",
+   "label": "向090002安装工程一切险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo09",
+   "methodName2": "addCoverage090002List"
+  },
+  {
+   "methodId": "ProductPropertyInfo09_addCoverage090003List_3",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo09_addCoverage090003List_3",
+   "label": "向090003建筑、安装工程保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo09",
+   "methodName2": "addCoverage090003List"
+  },
+  {
+   "methodId": "ProductPropertyInfo09_addCoverage090001List_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo09_addCoverage090001List_1",
+   "label": "向090001建筑工程一切险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo09",
+   "methodName2": "addCoverage090001List"
+  },
+  {
+   "methodId": "ProductPropertyInfo05_addCoverage059002List_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo05_addCoverage059002List_1",
+   "label": "向059002产品质量保证险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo05",
+   "methodName2": "addCoverage059002List"
+  },
+  {
+   "methodId": "ProductPropertyInfo05_addCoverage059003List_2",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo05_addCoverage059003List_2",
+   "label": "向059003雇员忠诚保证保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo05",
+   "methodName2": "addCoverage059003List"
+  },
+  {
+   "methodId": "ProductPropertyInfo05_addCoverage059900List_3",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo05_addCoverage059900List_3",
+   "label": "向059900通用保证险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo05",
+   "methodName2": "addCoverage059900List"
+  },
+  {
+   "methodId": "ProductPropertyInfo05_addCoverage059010List_4",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo05_addCoverage059010List_4",
+   "label": "向059010个人自用汽车消费贷款保证保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo05",
+   "methodName2": "addCoverage059010List"
+  },
+  {
+   "methodId": "ProductPropertyInfo05_addCoverage059011List_5",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo05_addCoverage059011List_5",
+   "label": "向059011建设工程投标保证保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo05",
+   "methodName2": "addCoverage059011List"
+  },
+  {
+   "methodId": "ProductPropertyInfo05_addCoverage059012List_6",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo05_addCoverage059012List_6",
+   "label": "向059012建设工程履约保证保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo05",
+   "methodName2": "addCoverage059012List"
+  },
+  {
+   "methodId": "ProductPropertyInfo05_addCoverage059013List_7",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo05_addCoverage059013List_7",
+   "label": "向059013建设工程支付保证保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo05",
+   "methodName2": "addCoverage059013List"
+  },
+  {
+   "methodId": "ProductPropertyInfo05_addCoverage059014List_8",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo05_addCoverage059014List_8",
+   "label": "向059014永安司法拍卖履约保证保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo05",
+   "methodName2": "addCoverage059014List"
+  },
+  {
+   "methodId": "ProductPropertyInfo05_addCoverage059015List_9",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo05_addCoverage059015List_9",
+   "label": "向059015投标保证险保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo05",
+   "methodName2": "addCoverage059015List"
+  },
+  {
+   "methodId": "ProductPropertyInfo05_addCoverage059016List_10",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo05_addCoverage059016List_10",
+   "label": "向059016农民工工资支付履约保证保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo05",
+   "methodName2": "addCoverage059016List"
+  },
+  {
+   "methodId": "ProductPropertyInfo05_addCoverage059017List_11",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo05_addCoverage059017List_11",
+   "label": "向059017建设工程质量保证保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo05",
+   "methodName2": "addCoverage059017List"
+  },
+  {
+   "methodId": "ProductPropertyInfo05_addCoverage059018List_12",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo05_addCoverage059018List_12",
+   "label": "向059018建设工程施工合同预付款保证保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo05",
+   "methodName2": "addCoverage059018List"
+  },
+  {
+   "methodId": "ProductPropertyInfo05_addCoverage059019List_13",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo05_addCoverage059019List_13",
+   "label": "向059019采购合同履约保证保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo05",
+   "methodName2": "addCoverage059019List"
+  },
+  {
+   "methodId": "ProductPropertyInfo05_addCoverage059020List_14",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo05_addCoverage059020List_14",
+   "label": "向059020采购合同预付款保证保险险别信息列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo05",
+   "methodName2": "addCoverage059020List"
+  },
+  {
+   "methodId": "ProductPropertyInfo05_addCoverage059021List_15",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo05_addCoverage059021List_15",
+   "label": "向059021旅行社服务质量保证金履约保证险险别信息列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo05",
+   "methodName2": "addCoverage059021List"
+  },
+  {
+   "methodId": "ProductPropertyInfo05_addCoverage059022List_16",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo05_addCoverage059022List_16",
+   "label": "向059022继续执行保证保险险别信息列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo05",
+   "methodName2": "addCoverage059022List"
+  },
+  {
+   "methodId": "ProductPropertyInfo05_addCoverage059023List_16",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo05_addCoverage059023List_16",
+   "label": "向059023售电公司履约保证保险险别信息列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.ProductPropertyInfo05",
+   "methodName2": "addCoverage059023List"
+  },
+  {
+   "methodId": "ProductPropertyInfo08_addCoverage089005List_6",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo08_addCoverage089005List_6",
+   "label": "向089005永安出租房屋保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo08",
+   "methodName2": "addCoverage089005List"
+  },
+  {
+   "methodId": "ProductPropertyInfo08_addCoverage089018List_7",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo08_addCoverage089018List_7",
+   "label": "向089018建房保险 (浙江)险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo08",
+   "methodName2": "addCoverage089018List"
+  },
+  {
+   "methodId": "ProductPropertyInfo08_addCoverage089030List_8",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo08_addCoverage089030List_8",
+   "label": "向089030城乡居民住宅地震巨灾保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo08",
+   "methodName2": "addCoverage089030List"
+  },
+  {
+   "methodId": "ProductPropertyInfo08_addCoverage087001List_9",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo08_addCoverage087001List_9",
+   "label": "向087001个人贷款抵押房屋保险 (2016版)险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo08",
+   "methodName2": "addCoverage087001List"
+  },
+  {
+   "methodId": "ProductPropertyInfo08_addCoverage080011List_10",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo08_addCoverage080011List_10",
+   "label": "向080011驾驶培训费用损失保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo08",
+   "methodName2": "addCoverage080011List"
+  },
+  {
+   "methodId": "ProductPropertyInfo08_addCoverage080026List_11",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo08_addCoverage080026List_11",
+   "label": "向080026永安电动自行车盗抢保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo08",
+   "methodName2": "addCoverage080026List"
+  },
+  {
+   "methodId": "ProductPropertyInfo08_addCoverage080027List_12",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo08_addCoverage080027List_12",
+   "label": "向080027永安家庭太阳能光伏发电设备综合保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo08",
+   "methodName2": "addCoverage080027List"
+  },
+  {
+   "methodId": "ProductPropertyInfo08_addCoverage080028List_13",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo08_addCoverage080028List_13",
+   "label": "向080028永安电子产品延长保修费用保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo08",
+   "methodName2": "addCoverage080028List"
+  },
+  {
+   "methodId": "ProductPropertyInfo08_addCoverage089900List_14",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo08_addCoverage089900List_14",
+   "label": "向089900通用家财险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo08",
+   "methodName2": "addCoverage089900List"
+  },
+  {
+   "methodId": "ProductPropertyInfo08_addCoverage080003List_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo08_addCoverage080003List_1",
+   "label": "向080003家庭财产综合保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo08",
+   "methodName2": "addCoverage080003List"
+  },
+  {
+   "methodId": "ProductPropertyInfo08_addCoverage080001List_2",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo08_addCoverage080001List_2",
+   "label": "向080001城市家庭财产保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo08",
+   "methodName2": "addCoverage080001List"
+  },
+  {
+   "methodId": "ProductPropertyInfo08_addCoverage080002List_3",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo08_addCoverage080002List_3",
+   "label": "向080002家用管道燃气综合险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo08",
+   "methodName2": "addCoverage080002List"
+  },
+  {
+   "methodId": "ProductPropertyInfo08_addCoverage080007List_4",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo08_addCoverage080007List_4",
+   "label": "向080007个人贷款抵押房屋保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo08",
+   "methodName2": "addCoverage080007List"
+  },
+  {
+   "methodId": "ProductPropertyInfo08_addCoverage080008List_5",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo08_addCoverage080008List_5",
+   "label": "向080008贷款房屋综合保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo08",
+   "methodName2": "addCoverage080008List"
+  },
+  {
+   "methodId": "ProductPropertyInfo07_addCoverage070001List_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo07_addCoverage070001List_1",
+   "label": "向070001飞机保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo07",
+   "methodName2": "addCoverage070001List"
+  },
+  {
+   "methodId": "ProductPropertyInfo07_addCoverage070002List_2",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo07_addCoverage070002List_2",
+   "label": "向070002卫星保险及其他特殊风险保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo07",
+   "methodName2": "addCoverage070002List"
+  },
+  {
+   "methodId": "ProductPropertyInfo07_addCoverage070005List_3",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo07_addCoverage070005List_3",
+   "label": "向070005无人机综合保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo07",
+   "methodName2": "addCoverage070005List"
+  },
+  {
+   "methodId": "ProductPropertyInfo02_addCoverage020001List_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo02_addCoverage020001List_1",
+   "label": "向020001出口海洋运输货物保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo02",
+   "methodName2": "addCoverage020001List"
+  },
+  {
+   "methodId": "ProductPropertyInfo02_addCoverage0200021List_2",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo02_addCoverage0200021List_2",
+   "label": "向020002出口陆上运输货物保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo02",
+   "methodName2": "addCoverage0200021List"
+  },
+  {
+   "methodId": "ProductPropertyInfo02_addCoverage020003List_3",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo02_addCoverage020003List_3",
+   "label": "向020003出口航空货物运输保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo02",
+   "methodName2": "addCoverage020003List"
+  },
+  {
+   "methodId": "ProductPropertyInfo02_addCoverage020004List_4",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo02_addCoverage020004List_4",
+   "label": "向020004邮包保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo02",
+   "methodName2": "addCoverage020004List"
+  },
+  {
+   "methodId": "ProductPropertyInfo02_addCoverage020005List_5",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo02_addCoverage020005List_5",
+   "label": "向020005进口海洋运输货物保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo02",
+   "methodName2": "addCoverage020005List"
+  },
+  {
+   "methodId": "ProductPropertyInfo02_addCoverage020006List_6",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo02_addCoverage020006List_6",
+   "label": "向020006进口陆上运输货物保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo02",
+   "methodName2": "addCoverage020006List"
+  },
+  {
+   "methodId": "ProductPropertyInfo02_addCoverage020007List_7",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo02_addCoverage020007List_7",
+   "label": "向020007进口航空货物运输保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo02",
+   "methodName2": "addCoverage020007List"
+  },
+  {
+   "methodId": "ProductPropertyInfo02_addCoverage020009List_8",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo02_addCoverage020009List_8",
+   "label": "向020009国内水路、陆路货物运输保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo02",
+   "methodName2": "addCoverage020009List"
+  },
+  {
+   "methodId": "ProductPropertyInfo02_addCoverage020011List_9",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo02_addCoverage020011List_9",
+   "label": "向020011国内航空货物运输保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo02",
+   "methodName2": "addCoverage020011List"
+  },
+  {
+   "methodId": "ProductPropertyInfo02_addCoverage0200131List_10",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo02_addCoverage0200131List_10",
+   "label": "向020013国内公路货物运输保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo02",
+   "methodName2": "addCoverage0200131List"
+  },
+  {
+   "methodId": "ProductPropertyInfo02_addCoverage020014List_11",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo02_addCoverage020014List_11",
+   "label": "向020014公路货物运输定额保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo02",
+   "methodName2": "addCoverage020014List"
+  },
+  {
+   "methodId": "ProductPropertyInfo02_addCoverage020015List_12",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo02_addCoverage020015List_12",
+   "label": "向020015物流货物保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo02",
+   "methodName2": "addCoverage020015List"
+  },
+  {
+   "methodId": "ProductPropertyInfo02_addCoverage020016List_13",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo02_addCoverage020016List_13",
+   "label": "向020016水路货物运输保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo02",
+   "methodName2": "addCoverage020016List"
+  },
+  {
+   "methodId": "ProductPropertyInfo02_addCoverage020017List_14",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo02_addCoverage020017List_14",
+   "label": "向020017铁路货物运输保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo02",
+   "methodName2": "addCoverage020017List"
+  },
+  {
+   "methodId": "ProductPropertyInfo02_addCoverage020018List_15",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo02_addCoverage020018List_15",
+   "label": "向020018国内货物运输定期保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo02",
+   "methodName2": "addCoverage020018List"
+  },
+  {
+   "methodId": "ProductPropertyInfo01_addCoverage010001List_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo01_addCoverage010001List_1",
+   "label": "向010001财产基本险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo01",
+   "methodName2": "addCoverage010001List"
+  },
+  {
+   "methodId": "ProductPropertyInfo01_addCoverage010002List_2",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo01_addCoverage010002List_2",
+   "label": "向010002财产一切险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo01",
+   "methodName2": "addCoverage010002List"
+  },
+  {
+   "methodId": "ProductPropertyInfo01_addCoverage010003List_3",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo01_addCoverage010003List_3",
+   "label": "向010003财产综合险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo01",
+   "methodName2": "addCoverage010003List"
+  },
+  {
+   "methodId": "ProductPropertyInfo01_addCoverage010004List_4",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo01_addCoverage010004List_4",
+   "label": "向010004个体工商户财产保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo01",
+   "methodName2": "addCoverage010004List"
+  },
+  {
+   "methodId": "ProductPropertyInfo01_addCoverage010005List_5",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo01_addCoverage010005List_5",
+   "label": "向010005现金保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo01",
+   "methodName2": "addCoverage010005List"
+  },
+  {
+   "methodId": "ProductPropertyInfo01_addCoverage010006List_6",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo01_addCoverage010006List_6",
+   "label": "向010006特种设备综合保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo01",
+   "methodName2": "addCoverage010006List"
+  },
+  {
+   "methodId": "ProductPropertyInfo01_addCoverage010007List_7",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo01_addCoverage010007List_7",
+   "label": "向010007机器损坏保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo01",
+   "methodName2": "addCoverage010007List"
+  },
+  {
+   "methodId": "ProductPropertyInfo01_addCoverage010008List_8",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo01_addCoverage010008List_8",
+   "label": "向010008计算机保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo01",
+   "methodName2": "addCoverage010008List"
+  },
+  {
+   "methodId": "ProductPropertyInfo01_addCoverage010009List_9",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo01_addCoverage010009List_9",
+   "label": "向010009电梯综合保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo01",
+   "methodName2": "addCoverage010009List"
+  },
+  {
+   "methodId": "ProductPropertyInfo01_addCoverage010020List_10",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo01_addCoverage010020List_10",
+   "label": "向010020营业中断保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo01",
+   "methodName2": "addCoverage010020List"
+  },
+  {
+   "methodId": "ProductPropertyInfo01_addCoverage010021List_11",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo01_addCoverage010021List_11",
+   "label": "向010021展览会综合保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo01",
+   "methodName2": "addCoverage010021List"
+  },
+  {
+   "methodId": "ProductPropertyInfo01_addCoverage019003List_12",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo01_addCoverage019003List_12",
+   "label": "向019003起重机械综合保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo01",
+   "methodName2": "addCoverage019003List"
+  },
+  {
+   "methodId": "ProductPropertyInfo01_addCoverage010022List_13",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo01_addCoverage010022List_13",
+   "label": "向010022商用燃气综合保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo01",
+   "methodName2": "addCoverage010022List"
+  },
+  {
+   "methodId": "ProductPropertyInfo01_addCoverage010023List_13",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo01_addCoverage010023List_13",
+   "label": "向010023网络安全综合保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.ProductPropertyInfo01",
+   "methodName2": "addCoverage010023List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040004List_12",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040004List_12",
+   "label": "向040004旅行社责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040004List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040005List_13",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040005List_13",
+   "label": "向040005校（园）方责任险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040005List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040006List_14",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040006List_14",
+   "label": "向040006医疗责任险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040006List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040007List_15",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040007List_15",
+   "label": "向040007律师责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040007List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage041001List_16",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage041001List_16",
+   "label": "向041001注册会计师职业责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage041001List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage042001List_17",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage042001List_17",
+   "label": "向042001建设工程设计责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage042001List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage042002List_18",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage042002List_18",
+   "label": "向042002物业管理责任险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage042002List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage042003List_19",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage042003List_19",
+   "label": "向042003教职员工校方责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage042003List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage043001List_20",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage043001List_20",
+   "label": "向043001电梯责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage043001List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage043003List_21",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage043003List_21",
+   "label": "向043003电动自行车综合保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage043003List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage043004List_22",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage043004List_22",
+   "label": "向043004火灾公众责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage043004List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage043005List_23",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage043005List_23",
+   "label": "向043005机动车停车场责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage043005List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage043009List_24",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage043009List_24",
+   "label": "向043009安全生产责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage043009List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage043011List_25",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage043011List_25",
+   "label": "向043011户外广告媒体公众责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage043011List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage043013List_26",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage043013List_26",
+   "label": "向043013环境污染责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage043013List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage045001List_27",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage045001List_27",
+   "label": "向045001建筑施工企业雇主责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage045001List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage049001List_28",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage049001List_28",
+   "label": "向049001食品卫生责任险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage049001List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage043018List_29",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage043018List_29",
+   "label": "向043018机动车辆延长保修责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage043018List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage049900List_30",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage049900List_30",
+   "label": "向049900通用责任险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage049900List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage043010List_31",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage043010List_31",
+   "label": "向043010实习生责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage043010List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040012List_32",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040012List_32",
+   "label": "向040012超额责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040012List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040013List_33",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040013List_33",
+   "label": "向040013建筑工程质量责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040013List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040014List_34",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040014List_34",
+   "label": "向040014沿海内河船舶桥梁碰撞责任险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040014List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040015List_35",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040015List_35",
+   "label": "向040015沿海内河船东保障和赔偿责任保险中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040015List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040016List_36",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040016List_36",
+   "label": "向040016政府防贫救助责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040016List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage043019List_37",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage043019List_37",
+   "label": "向043019物流安全责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage043019List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage043020List_38",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage043020List_38",
+   "label": "向043020家庭成员责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage043020List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040019List_39",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040019List_39",
+   "label": "向040019诉讼财产保全责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040019List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040021List_40",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040021List_40",
+   "label": "向040021码头营运人责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040021List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040020List_41",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040020List_41",
+   "label": "向040020职业责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040020List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage043002List_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage043002List_1",
+   "label": "向043002道路客运承运人保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage043002List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040008List_2",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040008List_2",
+   "label": "向040008船舶油污损害民事责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040008List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040009List_3",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040009List_3",
+   "label": "向040009船舶油污责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040009List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040011List_4",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040011List_4",
+   "label": "向040011船舶污染责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040011List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage043007List_5",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage043007List_5",
+   "label": "向043007道路危险货物承运人责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage043007List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage043008List_6",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage043008List_6",
+   "label": "向043008水路货物承运人责任险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage043008List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage043012List_7",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage043012List_7",
+   "label": "向043012物流责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage043012List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage043016List_8",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage043016List_8",
+   "label": "向043016道路货物运输承运人责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage043016List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040001List_9",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040001List_9",
+   "label": "向040001公众责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040001List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040002List_10",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040002List_10",
+   "label": "向040002雇主责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040002List"
+  },
+  {
+   "methodId": "ProductPropertyInfo04_addCoverage040003List_11",
+   "methodName": null,
+   "expressionId": "ProductPropertyInfo04_addCoverage040003List_11",
+   "label": "向040003产品责任保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyInfo04",
+   "methodName2": "addCoverage040003List"
+  },
+  {
+   "methodId": "OriginalPolicyInfo_addItemCargoInfoList_1",
+   "methodName": null,
+   "expressionId": "OriginalPolicyInfo_addItemCargoInfoList_1",
+   "label": "向原始保单信息货物信息中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.OriginalPolicyInfo",
+   "methodName2": "addItemCargoInfoList"
+  },
+  {
+   "methodId": "ProductPropertyObjInfo010021_addNseqList_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyObjInfo010021_addNseqList_1",
+   "label": "向财险010021展览会综合保险标的列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyObjInfo010021",
+   "methodName2": "addNseqList"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage061001List_1",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage061001List_1",
+   "label": "向061001团体意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage061001List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060030List_2",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060030List_2",
+   "label": "向060030团体人身意外伤害保险（2010）险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060030List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage061002List_3",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage061002List_3",
+   "label": "向061002人身意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage061002List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060003List_4",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060003List_4",
+   "label": "向060003旅游意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060003List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060001List_5",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060001List_5",
+   "label": "向060001旅游观光景点、娱乐场所意外险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060001List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060002List_6",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060002List_6",
+   "label": "向060002旅客住宿意外险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060002List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060004List_7",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060004List_7",
+   "label": "向060004麻醉安全意外险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060004List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060007List_8",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060007List_8",
+   "label": "向060007建筑工程团体人身意外伤害保险(2010)险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060007List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060010List_9",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060010List_9",
+   "label": "向060010航空旅客意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060010List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060012List_10",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060012List_10",
+   "label": "向060012乘客人身意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060012List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060017List_11",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060017List_11",
+   "label": "向060017出境人员意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060017List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060021List_12",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060021List_12",
+   "label": "向060021人身意外伤害身故/残疾保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060021List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060024List_13",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060024List_13",
+   "label": "向060024如意行人身意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060024List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060025List_14",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060025List_14",
+   "label": "向060025团体补充工伤保险(2009版)险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060025List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060032List_15",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060032List_15",
+   "label": "向060032学生平安保险(2009版)B款险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060032List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060037List_16",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060037List_16",
+   "label": "向060037母婴安康保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060037List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060038List_17",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060038List_17",
+   "label": "向060038借款人意外伤害保险（2009版）险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060038List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060042List_18",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060042List_18",
+   "label": "向060042盛世团体全球医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060042List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062001List_19",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062001List_19",
+   "label": "向062001机动车驾驶学员意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062001List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062002List_20",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062002List_20",
+   "label": "向062002交通工具意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062002List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062003List_21",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062003List_21",
+   "label": "向062003学生一年期平安保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062003List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062004List_22",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062004List_22",
+   "label": "向062004驾乘人员人身意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062004List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062008List_23",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062008List_23",
+   "label": "向062008借款人意外伤害保险B款险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062008List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062011List_24",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062011List_24",
+   "label": "向062011学生平安保险(2009版)险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062011List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062014List_25",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062014List_25",
+   "label": "向062014永安无忧团体保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062014List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062015List_26",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062015List_26",
+   "label": "向062015永安无忧人身意外伤害综合保险（B款）(2009版)险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062015List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062019List_27",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062019List_27",
+   "label": "向062019学生团体校内意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062019List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062021List_28",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062021List_28",
+   "label": "向062021驾驶人员意外险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062021List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062022List_29",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062022List_29",
+   "label": "向062022医务人员意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062022List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063001List_30",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063001List_30",
+   "label": "向063001大众滑雪运动意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063001List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063006List_31",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063006List_31",
+   "label": "向063006短期综合团体意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063006List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063013List_32",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063013List_32",
+   "label": "向063013团体补充医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063013List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063015List_33",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063015List_33",
+   "label": "向063015永安福康团体企业补充医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063015List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060008List_34",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060008List_34",
+   "label": "向060008建筑工程团体人身意外伤害保险（浙江）险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060008List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060036List_35",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060036List_35",
+   "label": "向060036永安康健康检查医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060036List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060039List_36",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060039List_36",
+   "label": "向060039旅游意外伤害保险(北京)险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060039List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060040List_37",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060040List_37",
+   "label": "向060040出境旅行意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060040List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage060041List_38",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage060041List_38",
+   "label": "向060041出境人员人身及紧急医疗综合保险（北京）险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage060041List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062005List_39",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062005List_39",
+   "label": "向062005驾驶人员意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062005List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062006List_40",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062006List_40",
+   "label": "向062006机动车驾驶人员意外伤害保险（2009版）险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062006List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062010List_41",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062010List_41",
+   "label": "向062010美华种植牙及正畸医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062010List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062016List_42",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062016List_42",
+   "label": "向062016永安无忧个人人身意外伤害综合保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062016List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062020List_43",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062020List_43",
+   "label": "向062020永安无忧人身意外伤害综合保险（B款）(2009版)险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062020List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062023List_44",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062023List_44",
+   "label": "向062023永安国际留学生医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062023List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063018List_45",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063018List_45",
+   "label": "向063018全球身故及意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063018List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063019List_46",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063019List_46",
+   "label": "向063019永安安优一生癌症医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063019List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063020List_47",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063020List_47",
+   "label": "向063020永安孕产医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063020List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063021List_48",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063021List_48",
+   "label": "向063021重大疾病保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063021List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage069033List_49",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage069033List_49",
+   "label": "向069033乐健一生保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage069033List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063030List_50",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063030List_50",
+   "label": "向063030飞行员失能保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063030List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage069900List_51",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage069900List_51",
+   "label": "向069900人身险通用险种中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage069900List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage069901List_52",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage069901List_52",
+   "label": "向069901短意险平台其他意外险中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage069901List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage069902List_53",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage069902List_53",
+   "label": "向069902短意险平台其他健康险中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage069902List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage069903List_54",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage069903List_54",
+   "label": "向069903短意险平台其他短意险中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage069903List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063022List_55",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063022List_55",
+   "label": "向063022康健一生医疗保险列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063022List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063023List_56",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063023List_56",
+   "label": "向063023永安康健一生医疗保险B款险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063023List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063024List_57",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063024List_57",
+   "label": "向063024手术意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063024List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063025List_58",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063025List_58",
+   "label": "向063025海外重症医疗保险险别信息中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063025List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage069910List_59",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage069910List_59",
+   "label": "向069910少儿百万医疗险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage069910List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063031List_60",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063031List_60",
+   "label": "向063031永安癌症医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063031List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063032List_61",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063032List_61",
+   "label": "向063032永安癌症特种药品费用医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063032List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063033List_62",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063033List_62",
+   "label": "向063033永安康健保医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063033List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063034List_63",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063034List_63",
+   "label": "向063034永安康健保医疗保险B款（水滴版）保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063034List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063035List_64",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063035List_64",
+   "label": "向063035永安贝呵护少儿医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063035List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063036List_65",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063036List_65",
+   "label": "向063036永安女性臻爱癌症医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063036List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063037List_66",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063037List_66",
+   "label": "向063037永安荣耀全球医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063037List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063038List_67",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063038List_67",
+   "label": "向063038永安康健保百万医疗保险C款保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063038List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063039List_68",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063039List_68",
+   "label": "向063039贝关爱少儿综合意外险保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063039List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063040List_69",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063040List_69",
+   "label": "向063040永安贝呵护少儿医疗保险B款保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063040List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063041List_70",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063041List_70",
+   "label": "向063041永安康健保医疗保险（安心版）险保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063041List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063043List_71",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063043List_71",
+   "label": "向063043永安贝呵护少儿医疗保险A款保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063043List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063045List_72",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063045List_72",
+   "label": "向063045永安城乡居民大病团体医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063045List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063046List_73",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063046List_73",
+   "label": "向063046永安手术意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063046List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063047List_74",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063047List_74",
+   "label": "向063047永安麻醉安全意外险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063047List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063042List_75",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063042List_75",
+   "label": "向063042永安天才宝贝医疗险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063042List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063048List_76",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063048List_76",
+   "label": "向063048永安甲乙类法定传染病保险列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063048List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063049List_77",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063049List_77",
+   "label": "向063049永安视力疾病保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063049List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063050List_78",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063050List_78",
+   "label": "向063050永安团体护理保险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063050List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063051List_79",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063051List_79",
+   "label": "向063051水滴全民普惠保百万医疗险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063051List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063053List_80",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063053List_80",
+   "label": "向063053永安肺康保医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063053List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063055List_81",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063055List_81",
+   "label": "向063055意外险员工福利保障计划中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063055List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063054List_82",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063054List_82",
+   "label": "向063054永安财险团体特定医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063054List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage062024List_83",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage062024List_83",
+   "label": "向062024非机动车驾驶人员意外伤害保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage062024List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063052List_84",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063052List_84",
+   "label": "向063052健康保障委托管理产品险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063052List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063056List_85",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063056List_85",
+   "label": "向063056永安财险互联网医院门诊医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063056List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063057List_86",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063057List_86",
+   "label": "向063057永安财险团体未成年人住院及门诊医疗保险险别险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063057List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063058List_87",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063058List_87",
+   "label": "向063058永安财险辅助生殖手术失败补偿保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063058List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063012List_88",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063012List_88",
+   "label": "向063012惠民补充医疗保险（惠民保）险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063012List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063059List_89",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063059List_89",
+   "label": "向063059恶性肿瘤疾病保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063059List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063066List_84",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063066List_84",
+   "label": "向063066永安龙腾瑞医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.ProductLifeInfo06",
+   "methodName2": "addCoverage063066List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063067List_85",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063067List_85",
+   "label": "向063067永安龙腾祥医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.ProductLifeInfo06",
+   "methodName2": "addCoverage063067List"
+  },
+  {
+   "methodId": "ProductLifeInfo06_addCoverage063060List_86",
+   "methodName": null,
+   "expressionId": "ProductLifeInfo06_addCoverage063060List_86",
+   "label": "向063060永安财险门诊慢特病医疗保险险别列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductLifeInfo06",
+   "methodName2": "addCoverage063060List"
+  },
+  {
+   "methodId": "AppBase_addItemCargoInfoList_7",
+   "methodName": null,
+   "expressionId": "AppBase_addItemCargoInfoList_7",
+   "label": "向保单的货物信息中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.AppBase",
+   "methodName2": "addItemCargoInfoList"
+  },
+  {
+   "methodId": "AppBase_addInsuredPlannoMinAgeList_4",
+   "methodName": null,
+   "expressionId": "AppBase_addInsuredPlannoMinAgeList_4",
+   "label": "向保单的被保人方案号最小年龄中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.AppBase",
+   "methodName2": "addInsuredPlannoMinAgeList"
+  },
+  {
+   "methodId": "AppBase_addPayPlanInfoList_5",
+   "methodName": null,
+   "expressionId": "AppBase_addPayPlanInfoList_5",
+   "label": "向保单的缴费计划信息列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.AppBase",
+   "methodName2": "addPayPlanInfoList"
+  },
+  {
+   "methodId": "AppBase_addVhlInfoList_6",
+   "methodName": null,
+   "expressionId": "AppBase_addVhlInfoList_6",
+   "label": "向保单的车辆信息列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.AppBase",
+   "methodName2": "addVhlInfoList"
+  },
+  {
+   "methodId": "AppBase_migrateSetnprm",
+   "methodName": null,
+   "expressionId": "AppBase_migrateSetnprm",
+   "label": "设置保单的保费合计为",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.AppBase",
+   "methodName2": "migrateSetnprm"
+  },
+  {
+   "methodId": "AppBase_setCprmcur",
+   "methodName": null,
+   "expressionId": "AppBase_setCprmcur",
+   "label": "设置保单保费币种为",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.AppBase",
+   "methodName2": "setCprmcur"
+  },
+  {
+   "methodId": "ProductPropertyObjInfo010004_addNseqList_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyObjInfo010004_addNseqList_1",
+   "label": "向财险010004个体工商户财产保险标的列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyObjInfo010004",
+   "methodName2": "addNseqList"
+  },
+  {
+   "methodId": "ProductPropertyObjInfo010007_addNseqList_1",
+   "methodName": null,
+   "expressionId": "ProductPropertyObjInfo010007_addNseqList_1",
+   "label": "向财险010007机器损坏保险标的列表中添加 0",
+   "classPath": "com.firsttech.insure.xom.nv.com.firsttech.insure.xom.nv.ProductPropertyObjInfo010007",
+   "methodName2": "addNseqList"
+  }
+ ]
+}

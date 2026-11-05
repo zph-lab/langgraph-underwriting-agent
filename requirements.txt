@@ -1,0 +1,2 @@
+-r ar_agent开发/agent_1/airong_agent_test1/requirements.txt
+-r rule_editor_new/rule_editor/requirements.txt

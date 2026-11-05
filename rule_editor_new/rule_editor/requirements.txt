@@ -1,0 +1,5 @@
+fastapi>=0.110
+uvicorn[standard]>=0.27
+jieba>=0.42
+PyYAML>=6.0
+pydantic>=2.5

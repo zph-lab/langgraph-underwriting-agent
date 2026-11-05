@@ -1,0 +1,18 @@
+{
+  "providers": {
+    "deepseek": {
+      "name": "OpenAI-compatible provider",
+      "baseUrl": "https://api.example.com/v1",
+      "api": "openai-completions",
+      "apiKey": "AGENT_API_KEY",
+      "models": [
+        {
+          "id": "deepseek-v4-pro",
+          "name": "Configure your model ID",
+          "contextWindow": 32768,
+          "maxTokens": 4096
+        }
+      ]
+    }
+  }
+}

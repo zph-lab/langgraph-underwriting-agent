@@ -1,0 +1,18 @@
+services:
+  rule-editor:
+    build: .
+    image: rule-editor:latest
+    container_name: rule-editor
+    ports:
+      # 宿主机端口:容器端口（前端 http://<宿主机IP>:8010/）
+      - "8010:8010"
+    environment:
+      - PORT=8010
+    volumes:
+      # 可选：挂载配置文件，改 BOM 数据源 / 上传参数后 restart 即生效，无需重建镜像
+      - ./rule_editor/config.yaml:/app/rule_editor/config.yaml:ro
+      # 可选：换 BOM 表或重建方法注册表时挂载数据目录（去掉 :ro 以便容器内跑 ETL/生成注册表写回）
+      # - ./新车险915:/app/新车险915
+      # - ./data:/app/data
+      # - ./desc_to_rulecontent:/app/desc_to_rulecontent
+    restart: unless-stopped

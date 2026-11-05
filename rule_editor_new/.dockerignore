@@ -1,0 +1,15 @@
+# 构建上下文瘦身：排除缓存、本地数据与文档杂项
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.bak
+.git/
+.codebuddy/
+deploy/
+*.md
+部署环境安装.txt
+
+# 注：以下运行时依赖【不能排除】
+# data/                ETL 产物 sqlite
+# 新车险915/           BOM 数据源（config.yaml data.bom_path）
+# desc_to_rulecontent/ 转换器 + 方法注册表 json

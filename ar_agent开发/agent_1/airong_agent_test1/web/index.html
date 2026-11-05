@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>规则AI助手</title>
+<link rel="stylesheet" href="./styles.css?v=20261103pages" />
+<script src="./vendor/vue.global.prod.js"></script>
+
+</head>
+<body>
+<div id="app" v-cloak>
+  <header class="topbar">
+    <div class="top-left">
+      <button class="btn icon menu-btn" title="会话列表" @click="sidebarOpen = !sidebarOpen">☰</button>
+      <img class="company-logo" src="./assets/company-logo.svg" alt="艾融科技" />
+      <div class="brand">
+        <div class="brand-sub">规则查询 · 智能编写 · 编辑验证</div>
+      </div>
+    </div>
+    <div class="top-actions">
+      <nav class="workspace-tabs" aria-label="工作区切换">
+        <a class="workspace-tab active" href="./" aria-current="page">规则AI助手</a>
+        <a class="workspace-tab" :href="editorUrl">adp规则编辑器</a>
+      </nav>
+      <span class="conn" :class="connected ? 'on' : 'off'">{{ connected ? '已连接' : '连接中…' }}</span>
+    </div>
+  </header>
+
+  <div class="layout" v-show="activeView === 'assistant'">
+    <aside class="sidebar" :class="{ open: sidebarOpen }">
+      <div class="sidebar-heading">核保规则工作台</div>
+      <button class="btn new-session" @click="newSession">＋ 新会话</button>
+      <div class="sess-list">
+        <div v-for="s in sessionList" :key="s.sid"
+             class="sess-item" :class="{ active: s.sid === currentSid }"
+             @click="switchTo(s.sid)">
+          <div class="sess-main">
+            <div class="sess-title">{{ s.title || '新会话' }}</div>
+            <div class="sess-meta">{{ fmtTime(s.updatedAt) }} · {{ s.messages.length }} 条</div>
+          </div>
+          <button class="sess-del" title="删除会话" @click.stop="removeSession(s.sid)">✕</button>
+        </div>
+      </div>
+      <div class="sess-tip">历史会话与草稿保存在本浏览器；切回旧会话可继续多轮对话。</div>
+    </aside>
+    <div class="scrim" :class="{ show: sidebarOpen }" @click="sidebarOpen = false"></div>
+
+    <div class="main-col">
+      <div class="workspace-heading"><span>核保规则 / <strong>规则AI助手</strong></span><span class="workspace-description">查询、编写与验证</span></div>
+      <main class="chat" ref="scroller">
+        <div v-if="!messages.length" class="empty">
+          <h2>有什么可以帮您？</h2>
+          <p>我可以查询业务名词（BOM）、检索现有规则，并按四段式帮您编写核保规则。</p>
+          <div class="examples">
+            <button v-for="ex in examples" :key="ex" class="chip" @click="draft = ex">{{ ex }}</button>
+          </div>
+        </div>
+
+        <template v-for="(m, i) in messages" :key="i">
+          <div class="row" :class="m.role">
+            <div v-if="m.role !== 'system'" class="avatar">{{ m.role === 'user' ? '我' : (m.role === 'error' ? '!' : '助') }}</div>
+            <div class="bubble" :class="m.role">
+              <details v-if="m.process || m.thinking" class="thinking">
+                <summary>处理过程 / 简要进度（点击展开）</summary>
+                <pre>{{ [m.process, m.thinking].filter(Boolean).join('\n\n') }}</pre>
+              </details>
+              <div v-if="m.files && m.files.length" class="msg-files">
+                <span v-for="(f, fi) in m.files" :key="fi" class="file-tag">📎 {{ f.name }}</span>
+              </div>
+              <div v-if="m.role === 'assistant'" class="content md" v-html="renderMarkdown(m.text)"></div>
+              <div v-if="m.role === 'assistant' && m.text && !m.streaming" class="message-actions">
+                <button class="text-action" @click="copyToEditor(m.text)">复制并到编辑器验证</button>
+              </div>
+              <pre v-else class="content">{{ m.text }}</pre><span v-if="m.streaming && m.text" class="caret"></span>
+            </div>
+          </div>
+        </template>
+
+        <div v-show="busy || activity.active" class="activity" role="status" aria-live="polite">
+          <span class="pulse"></span>{{ activity.active ? activity.text : (connected ? "任务执行中，正在分析并生成答复…" : "连接恢复中，任务可能仍在执行…") }}
+        </div>
+      </main>
+
+      <footer class="inputbar">
+        <div v-show="statusText" class="status">{{ statusText }}</div>
+        <div v-if="attachments.length" class="attach-bar">
+          <span v-for="(a, ai) in attachments" :key="a.uid" class="attach" :class="a.status">
+            <template v-if="a.status === 'uploading'">⏳ {{ a.name }}…</template>
+            <template v-else-if="a.status === 'ready'">📎 {{ a.name }}（{{ a.chars.toLocaleString() }} 字{{ a.truncated ? "，已截断" : "" }}）</template>
+            <template v-else>⚠️ {{ a.name }}：{{ a.error }}</template>
+            <button class="attach-x" title="移除附件" @click="removeAttachment(ai)">✕</button>
+          </span>
+        </div>
+        <div class="input-row">
+          <input ref="fileInput" type="file" multiple hidden @change="onFilesPicked" />
+          <button class="attach-btn" :disabled="busy" @click="pickFiles" title="上传文档/表格/PDF，提取文本作为上下文">📎</button>
+          <textarea
+            v-model="draft"
+            rows="1"
+            placeholder="输入问题，Enter 发送，Shift+Enter 换行"
+            @keydown.enter.exact.prevent="send"
+            @input="autoGrow"
+            ref="taEl"
+          ></textarea>
+          <button v-if="busy" class="btn stop" @click="stop">停止</button>
+          <button v-else class="btn send" :disabled="!draft.trim() && !hasReadyAttachment" @click="send">发送</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <section class="editor-workspace" v-show="activeView === 'editor'" aria-label="adp规则编辑器">
+    <div class="editor-toolbar">
+      <span role="status">{{ editorNotice || '在下方编辑器粘贴规则，使用原有整理与验证功能；首次使用请登录。' }}</span>
+      <a :href="editorUrl" target="_blank" rel="noopener noreferrer">独立窗口打开 ↗</a>
+    </div>
+    <iframe v-if="editorOpened" :src="editorUrl" title="adp规则编辑器" class="editor-frame"></iframe>
+  </section>
+</div>
+<script src="./app.js?v=20261103pages"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+表达式描述 表达式ID 前置参数类型 后置参数类型
+不为空	OBJECT_NOT_EMPTY	object	
+为空	COLLECTION_IS_EMPTY	list	
+前 <数值参数> 位	STR_BEGIN_WITH_NUM	string	string
+后 <数值参数> 位	STR_END_WITH_NUM	string	string
+包含 <字段参数>	STR_INCLUDE_FIELD	string	string
+内容长度（集合）	SIZE_OF_LIST	list	
+内容长度(字符串)	STR_LENGTH	string	
+以 <字符串参数> 结尾	STR_END_WITH	string	string
+截取第<数值参数>位至第<数值参数>位	STR_STR_WITH_NUM	string	string
+不为空	COLLECTION_NOT_EMPTY	list	
+不包含 <字段参数>	STR_NOT_INCLUDE_FIELD	string	string
+包含 <字符串参数>(以逗号分割)	COLLECTION_ANY_STR	list	List
+不包含 <字符串参数>(以逗号分割)	COLLECTION_NOT_IN_STR	list	List
+不以 <字符串参数> 结尾	STR_NOT_END_WITH	string	string
+属于 <字符串参数>(多个参数以逗号分割) 中的一个	STR_BELONG_TO	string	string
+不属于（单选） <字符串参数>(多个参数以逗号分割) 中的一个	STR_NOT_BELONG_TO	string	string
+的 <字段参数> 不包含 <集合>	COLL_OBJECT_NOT_INCLUDE	list	
+的 <字段参数> 包含 <集合>	OBJ_FIELD_COLL_INCLUDE	list	string
+段路径带有集合类型的字段) 包含 <字符串参数，多个参数用逗号分隔>	FIELD_PATH_CONTAIN_COLLECTION_OF_FIELD_CONTAIN_VALUE	string	string
+段路径带有集合类型的字段) 不包含 <字符串参数，多个参数用逗号分隔>	FIELD_PATH_CONTAIN_COLLECTION_OF_FIELD_NOT_CONTAIN_VALUE	string	string
+不以 <字符串参数> 开头	STR_NOT_START_WITH	string	string
+包含 <字符串参数>(多个参数以逗号分割)	STR_INCLUDE	string	string
+不包含 <字符串参数>(多个参数以逗号分割)	STR_NOT_INCLUDE	string	string
+的 <字段参数> 全部包含 <集合>	COLL_OBJECT_INCLUDE_ALL	list	
+为空	STR_EMPTY	string	
+不为空	STR_NOT_EMPTY	string	
+以 <字符串参数> 开头	STR_START_WITH	string	string
+在 <数值参数> 和 <数值参数> 之间	NUM_BETWEEN	double	double
+在 <日期参数> 和 <日期参数> 之间	DATE_BETWEEN	date	date
+为 <是,否>	BOOLEAN_BELONG_TO	boolean	
+部分属于 <集合参数>	COLLECTION_ANY_BELONG_TO	list	list
+全部属于 <集合参数>	COLLECTION_ALL_BELONG_TO	list	List
+部分包含 <集合参数>	COLLECTION_ANY_CONTAINS	list	List
+全部包含 <集合参数>	COLLECTION_ALL_CONTAINS	list	List
+在 <时间参数> 和 <时间参数> 之间	TIME_BETWEEN	time	time
+列表中（符合条件：<字段> 为 <值>）的<字段参数（数字型）>	OBJECT_CENTRE_FIELD_DOUBLE	list	string
+不包含 <集合参数>	COLLECTION_NOT_IN_CONTAINS	list	List
+列表中（符合条件：<字段> 为 <值>）的<字段参数（字符类型）>	OBJECT_CENTRE_FIELD_STRING	list	string

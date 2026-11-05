@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "ES2024",
+    "lib": ["ES2024"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": true,
+    "resolveJsonModule": true,
+    "typeRoots": ["../pi-main/node_modules/@types"],
+    "types": ["node"],
+    "paths": {
+      "typebox": ["../pi-main/node_modules/typebox/build/index.d.mts"],
+      "@earendil-works/pi-coding-agent": ["../pi-main/packages/coding-agent/src/index.ts"],
+      "@earendil-works/pi-coding-agent/*": ["../pi-main/packages/coding-agent/src/*"],
+      "@earendil-works/pi-ai": ["../pi-main/packages/ai/src/index.ts"],
+      "@earendil-works/pi-ai/*": ["../pi-main/packages/ai/src/*.ts", "../pi-main/packages/ai/src/providers/*.ts"],
+      "@earendil-works/pi-agent-core": ["../pi-main/packages/agent/src/index.ts"],
+      "@earendil-works/pi-tui": ["../pi-main/packages/tui/src/index.ts"],
+      "@earendil-works/pi-tui/*": ["../pi-main/packages/tui/src/*"],
+      "@earendil-works/pi-mcp": ["../pi-main/packages/mcp/src/index.ts"],
+      "@earendil-works/pi-mcp/*": ["../pi-main/packages/mcp/src/*"],
+      "@earendil-works/pi-env": ["../pi-main/packages/env/src/index.ts"],
+      "@earendil-works/pi-codemode": ["../pi-main/packages/codemode/src/index.ts"],
+      "@earendil-works/pi-codemode/*": ["../pi-main/packages/codemode/src/*"],
+      "@earendil-works/pi-durable": ["../pi-main/packages/durable/src/index.ts"],
+      "@earendil-works/pi-durable/*": ["../pi-main/packages/durable/src/*.ts", "../pi-main/packages/durable/src/*/index.ts"],
+      "@earendil-works/pi-telemetry": ["../pi-main/packages/telemetry/src/index.ts"],
+      "@earendil-works/pi-protocol": ["../pi-main/packages/protocol/src/index.ts"],
+      "@earendil-works/pi-protocol/*": ["../pi-main/packages/protocol/src/*"],
+      "@earendil-works/pi-client": ["../pi-main/packages/client/src/index.ts"],
+      "@earendil-works/pi-client/*": ["../pi-main/packages/client/src/*"],
+      "@earendil-works/pi-server": ["../pi-main/packages/server/src/index.ts"],
+      "@earendil-works/pi-server/*": ["../pi-main/packages/server/src/*"]
+    }
+  },
+  "include": [".pi/extensions/**/*.ts"]
+}

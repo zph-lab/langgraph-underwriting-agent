@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>adp规则编辑器</title>
+  <link rel="icon" href="data:,">
+  <style>
+    /* 2026-09-29：对齐主系统（vue-element-admin + Element UI，品牌蓝 #0079ff） */
+    :root {
+      --primary: #0079ff; --primary-hover: #3394ff; --primary-active: #006de6;
+      --el-blue: #409eff;
+      --text-1: #303133; --text-2: #606266; --text-3: #909399; --text-4: #c0c4cc;
+      --border-1: #dcdfe6; --border-2: #ebeef5; --border-3: #e4e7ed;
+      --bg-page: #f5f7fb; --bg-light: #f5f7fa; --bg-tag: #f4f4f5;
+      --success: #67c23a; --warning: #e6a23c; --danger: #f56c6c; --info: #909399;
+      --radius: 4px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+      background: var(--bg-page); color: var(--text-1); height: 100vh; display: flex;
+      flex-direction: column; font-size: 14px;
+      display: grid; grid-template-columns: 210px minmax(0, 1fr); grid-template-rows: 50px minmax(0, 1fr);
+    }
+    /* 与 ADP 主站一致：白色顶栏、深蓝侧栏、品牌蓝选中项。 */
+    header {
+      grid-column: 1 / -1; grid-row: 1; background: #fff; color: #435475; min-height: 50px;
+      padding: 0 25px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      box-shadow: 0 1px 4px rgba(0, 21, 41, .08); position: relative; z-index: 3;
+    }
+    header .brand { display: flex; align-items: center; min-width: 0; gap: 20px; }
+    header .brand-logo { display: flex; align-items: center; width: 155px; height: 50px; flex-shrink: 0; }
+    header .brand-logo img { display: block; width: auto; height: 30px; }
+    header .status { font-size: 12px; color: #60769c; }
+    /* 顶栏右侧：状态（2026-09-30：数据规模统计 .head-stats 已隐藏移除） */
+    header .head-right { display: flex; align-items: center; gap: 18px; }
+    .feature-sidebar { grid-column: 1; grid-row: 2; min-height: 0; overflow-y: auto; background: #15315f; padding-top: 28px; }
+    .sidebar-caption { padding: 0 22px 18px; color: #aebed7; font-size: 12px; letter-spacing: 1px; }
+    .feature-nav { display: flex; flex-direction: column; }
+    .feature-tab { display: flex; align-items: center; gap: 14px; min-height: 54px; border: 0; border-radius: 0; padding: 14px 22px; background: transparent; color: #d5e2f4; font: inherit; cursor: pointer; white-space: nowrap; text-align: left; text-decoration: none; }
+    .feature-tab .nav-icon { width: 20px; font-size: 20px; line-height: 1; text-align: center; }
+    .feature-tab:hover { background: #263445; color: #fff; }
+    .feature-tab[aria-current="page"] { background: var(--primary); color: #fff; }
+    .feature-tab:focus-visible { outline: 2px solid #fff; outline-offset: -3px; }
+    [hidden] { display: none !important; }
+    .assistant-fullscreen { grid-column: 2; grid-row: 2; min-width: 0; min-height: 0; background: #fff; }
+    .assistant-fullscreen iframe { display: block; width: 100%; height: 100%; border: 0; }
+    .assistant-back { position: absolute; left: 50%; top: 8px; transform: translateX(-50%); z-index: 1; padding: 8px 14px; border: 1px solid #dcdfe6; border-radius: 4px; background: #fff; color: #0079ff; font: inherit; font-size: 12px; cursor: pointer; box-shadow: 0 2px 8px rgba(0, 21, 41, .12); }
+    .assistant-back:hover { background: #ecf5ff; border-color: #0079ff; }
+    .assistant-back:focus-visible { outline: 2px solid #0079ff; outline-offset: 2px; }
+    @media (max-width: 600px) {
+      body { grid-template-columns: minmax(0, 1fr); grid-template-rows: 50px 50px minmax(0, 1fr); }
+      header { padding: 0 12px; gap: 8px; }
+      header .brand-logo { width: 125px; }
+      header .brand-logo img { height: 26px; }
+      header .status { max-width: 180px; text-align: right; font-size: 11px; }
+      .feature-sidebar { grid-column: 1; grid-row: 2; padding: 0; }
+      .sidebar-caption { display: none; }
+      .feature-nav { flex-direction: row; height: 50px; }
+      .feature-tab { flex: 1; min-height: 50px; justify-content: center; padding: 8px; gap: 8px; }
+      #editorPanel { grid-column: 1; grid-row: 3; }
+      .assistant-fullscreen { grid-column: 1; grid-row: 3; }
+      #editorPanel { overflow-y: auto; flex-direction: column; }
+      #editorPanel .left, #editorPanel .right { flex: none; overflow-y: visible; }
+    }
+    main { grid-column: 2; grid-row: 2; min-width: 0; min-height: 0; display: flex; overflow: hidden; }
+    .left { flex: 1.6; display: flex; flex-direction: column; padding: 16px; overflow-y: auto; }
+    .right { flex: 1; border-left: 0; padding: 16px; overflow-y: auto; background: var(--bg-page); }
+    .card { background: #fff; border: 1px solid #e6ebf5; border-radius: var(--radius); padding: 20px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0, 21, 41, .03); }
+    .right .card { background: #fff; border-color: #e6ebf5; }
+    /* 淡蓝底上内部灰底块提亮为白底，保持"块中块"层次 */
+    .right .card .test-msg, .right .card .test-edit,
+    .right .card .hit-result, .right .card .blank-box {
+      background: #fff; border-color: #d6e9ff;
+    }
+    .card h3 { font-size: 15px; color: var(--text-1); margin-bottom: 12px; font-weight: 600; }
+    .card h3 { padding-left: 10px; border-left: 4px solid var(--primary); line-height: 20px; }
+    /* 编辑器 */
+    .editor-wrap { position: relative; background: #fff; border-radius: var(--radius); }
+    .rule-box {
+      width: 100%; min-height: 350px; border: 1px solid var(--border-1); border-radius: var(--radius);
+      padding: 14px; font-size: 16px; line-height: 1.8; resize: vertical;
+      font-family: inherit; color: var(--text-1); outline: none;
+      transition: border-color .2s;
+      /* 2026-09-30 错误标红垫层：textarea 底色透明露出下层垫色，文字/光标照常 */
+      background: transparent; position: relative; z-index: 1;
+    }
+    /* 错误标红垫层：铺在 textarea 下方（尺寸/排版由 JS 逐像素对齐 clientWidth），
+       仅在词下方垫红色波浪线+浅红底；不参与交互 */
+    .editor-mark-clip {
+      position: absolute; overflow: hidden; pointer-events: none; z-index: 0; display: none;
+    }
+    .editor-mark-inner {
+      box-sizing: border-box; color: transparent; background: transparent;
+      white-space: pre-wrap; overflow-wrap: break-word; word-break: normal;
+    }
+    .mark-err {
+      background: rgba(245, 108, 108, .16); border-radius: 2px;
+      text-decoration: underline wavy var(--danger); text-decoration-skip-ink: none;
+    }
+    .rule-box:hover { border-color: var(--text-4); }
+    .rule-box:focus { border-color: var(--primary); }
+    .rule-box::placeholder { color: var(--text-4); }
+    /* 候选下拉 */
+    .suggest-list {
+      position: fixed; left: 0; top: 0; z-index: 20;
+      min-width: 260px; max-width: min(720px, calc(100vw - 24px));
+      max-height: 320px; overflow-y: auto; background: #fff;
+      border: 1px solid var(--border-3); border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(0,0,0,.1); display: none;
+    }
+    .suggest-list.show { display: block; }
+    /* 候选可达 50 条：限高 + 明显滚动条（滑块） */
+    .suggest-list::-webkit-scrollbar { width: 8px; }
+    .suggest-list::-webkit-scrollbar-thumb { background: var(--text-4); border-radius: 4px; }
+    .suggest-list::-webkit-scrollbar-thumb:hover { background: var(--info); }
+    .sug-item {
+      padding: 9px 14px; cursor: pointer; font-size: 14px; color: var(--text-2);
+      display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 1px solid var(--border-2);
+    }
+    .sug-item > span:first-child {
+      flex: 1; min-width: 0; overflow: hidden;
+      text-overflow: ellipsis; white-space: nowrap;
+    }
+    .sug-item:hover { background: var(--bg-light); }
+    .sug-item.hl { background: #ecf5ff; color: var(--primary); }
+    /* 标签改 Element tag 风格：浅底 + 语义色文字 */
+    .sug-item .tag {
+      font-size: 10px; background: var(--bg-tag); color: var(--info);
+      border-radius: var(--radius); padding: 1px 6px; flex-shrink: 0; margin-left: 8px;
+    }
+    .sug-item .tag.op, .sug-item .tag.operator { background: #fdf6ec; color: var(--warning); }
+    .sug-item .tag.conn, .sug-item .tag.connector { background: #ecf5ff; color: var(--el-blue); }
+    .sug-item .tag.obj { background: #f0f9eb; color: var(--success); }
+    .sug-item .tag.field { background: #f0f9eb; color: var(--success); }
+    .sug-item .tag.keyword { background: #ecf5ff; color: var(--el-blue); }
+    .sug-item .tag.fuzzy { background: #fdf6ec; color: var(--warning); }
+    .sug-item .tag.entry { background: #fef0f0; color: var(--danger); }
+    /* 2026-09-29：方法候选标签 + 字段数据类型标签 */
+    .sug-item .tag.method { background: #fef0f0; color: var(--danger); }
+    .sug-item .tag.type { background: var(--bg-tag); color: var(--text-3); }
+    .sug-item.hl .tag { opacity: .85; }
+    .row { display: flex; gap: 8px; margin-top: 12px; align-items: center; flex-wrap: wrap; }
+    /* Element 按钮：白底细边框默认 / 品牌蓝 primary */
+    .btn {
+      padding: 8px 15px; border: 1px solid var(--border-1); border-radius: var(--radius);
+      cursor: pointer; font-size: 12px; font-weight: 500; font-family: inherit;
+      background: #fff; color: var(--text-2); transition: .1s; white-space: nowrap;
+    }
+    .btn:hover { color: var(--primary); border-color: #b3d8ff; background: #ecf5ff; }
+    /* ghost = Element plain 风格：白底 + 蓝边 + 蓝字（与主系统按钮一致） */
+    .btn.ghost { background: #fff; color: var(--primary); border-color: var(--primary); }
+    .btn.ghost:hover, .btn.ghost:focus { background: #ecf5ff; color: var(--primary-hover); border-color: var(--primary-hover); }
+    .btn.ghost:active { color: var(--primary-active); border-color: var(--primary-active); }
+    .btn.primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .btn.primary:hover, .btn.primary:focus { background: var(--primary-hover); border-color: var(--primary-hover); color: #fff; }
+    .btn.primary:active { background: var(--primary-active); border-color: var(--primary-active); }
+    .btn:disabled { opacity: .5; cursor: not-allowed; }
+    .btn:disabled:hover { color: var(--text-2); border-color: var(--border-1); background: #fff; }
+    .hint { font-size: 12px; color: var(--text-3); margin-top: 8px; line-height: 1.6; }
+    .hint kbd { background: var(--bg-tag); border: 1px solid var(--border-1); border-radius: 3px; padding: 0 4px; font-size: 11px; color: var(--text-2); }
+    .hint a { color: var(--primary); text-decoration: none; }
+    #descPreview { font-size: 15px; line-height: 1.9; min-height: 40px; white-space: pre-wrap; word-break: break-all; color: var(--text-1); }
+    #descPreview .empty { color: var(--text-4); }
+    .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; font-size: 11px; color: var(--text-2); }
+    .legend span { display: inline-flex; align-items: center; gap: 4px; }
+    .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
+    .right .card h3 { margin-bottom: 6px; }
+    .right .card p { font-size: 12px; color: var(--text-3); margin-bottom: 10px; }
+    .stats { font-size: 12px; color: var(--text-2); line-height: 1.8; }
+    .stats b { color: var(--primary); }
+    /* 上传表单 */
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin-top: 6px; }
+    .form-grid label { display: flex; flex-direction: column; font-size: 12px; color: var(--text-2); gap: 4px; }
+    .form-grid input {
+      border: 1px solid var(--border-1); border-radius: var(--radius); padding: 8px 10px;
+      font-size: 13px; font-family: inherit; color: var(--text-2); outline: none; width: 100%;
+      transition: border-color .2s;
+    }
+    .form-grid input:hover { border-color: var(--text-4); }
+    .form-grid input:focus { border-color: var(--primary); }
+    .form-grid input::placeholder { color: var(--text-4); }
+    /* 日志/JSON 展示区：深色终端 → 主系统浅色代码区风格 */
+    .upload-result {
+      margin-top: 12px; background: var(--bg-light); border: 1px solid var(--border-2);
+      color: var(--text-1); border-radius: var(--radius);
+      padding: 12px; font-size: 12px; line-height: 1.6; max-height: 280px; overflow: auto;
+      white-space: pre-wrap; word-break: break-all; display: none;
+    }
+    .upload-result.show { display: block; }
+    .upload-result.ok { color: var(--success); }
+    /* 测试报文（右侧卡片内 JSON 骨架） */
+    .test-msg {
+      background: var(--bg-light); border: 1px solid var(--border-2);
+      color: var(--text-1); border-radius: var(--radius);
+      padding: 12px; font-size: 12px; line-height: 1.6; max-height: 320px; overflow: auto;
+      white-space: pre-wrap; word-break: break-all; margin: 0 0 10px;
+    }
+    .test-msg.empty { color: var(--text-4); }
+    /* 测试应用标识（applicationId）输入框 */
+    .appid-box { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-2); white-space: nowrap; }
+    .appid-box input {
+      border: 1px solid var(--border-1); border-radius: var(--radius); padding: 6px 10px;
+      font-size: 13px; font-family: inherit; color: var(--text-2); outline: none; width: 230px;
+      transition: border-color .2s;
+    }
+    .appid-box input:hover { border-color: var(--text-4); }
+    .appid-box input:focus { border-color: var(--primary); }
+    .upload-result.err { color: var(--danger); }
+    /* 测试报文：可编辑树（null 叶子 → 输入框） */
+    .test-edit {
+      background: var(--bg-light); border: 1px solid var(--border-2);
+      color: var(--text-1); border-radius: var(--radius);
+      padding: 12px; font-size: 12px; line-height: 1.9; max-height: 360px; overflow: auto;
+      margin: 0 0 10px; display: none; font-family: Consolas, Menlo, monospace;
+    }
+    .test-edit.show { display: block; }
+    .test-edit .jline { white-space: pre; }
+    .test-edit .jkey { color: var(--el-blue); }
+    .test-edit .jpunc { color: var(--text-3); }
+    .test-edit input.jval {
+      background: #fff; color: var(--text-1); border: 1px solid var(--border-1);
+      border-radius: var(--radius);
+      padding: 1px 7px; font-size: 12px; font-family: inherit; outline: none; min-width: 170px;
+      transition: border-color .2s;
+    }
+    .test-edit input.jval:hover { border-color: var(--text-4); }
+    .test-edit input.jval:focus { border-color: var(--primary); }
+    .test-edit input.jval.filled { color: var(--success); border-color: #b3e19d; }
+    .test-edit input.jval.badjson { border-color: var(--danger); color: var(--danger); }
+    .test-edit .jnull { color: var(--text-4); font-style: italic; }
+    .test-edit .jbtn {
+      background: #fff; color: var(--text-2); border: 1px solid var(--border-1);
+      border-radius: var(--radius);
+      font-size: 11px; padding: 1px 8px; cursor: pointer; margin-left: 6px;
+    }
+    .test-edit .jbtn:hover { color: var(--primary); border-color: #b3d8ff; background: #ecf5ff; }
+    .hit-result {
+      margin-top: 12px; background: var(--bg-light); border: 1px solid var(--border-2);
+      color: var(--text-1); border-radius: var(--radius);
+      padding: 12px; font-size: 12px; line-height: 1.6; max-height: 300px; overflow: auto;
+      white-space: pre-wrap; word-break: break-all; display: none;
+    }
+    .hit-result.show { display: block; }
+    .hit-result.hit { color: #767602; }
+    .hit-result.miss { color: var(--warning); }
+    .hit-result.err { color: var(--danger); }
+    .blank-box {
+      background: var(--bg-light); border: 1px solid var(--border-2); border-radius: var(--radius);
+      padding: 12px; font-size: 13px; line-height: 2.4; margin-bottom: 10px; color: var(--text-1);
+    }
+    .blank-box.empty { color: var(--text-4); }
+    .blank-input {
+      display: inline-block; width: 220px; padding: 3px 8px; margin: 0 2px;
+      border: 1px solid var(--border-1); border-radius: var(--radius); font-size: 12px;
+      font-family: inherit; color: var(--text-2); transition: border-color .2s;
+    }
+    .blank-input:hover { border-color: var(--text-4); }
+    .blank-input:focus { outline: none; border-color: var(--primary); }
+    .blank-input.filled { border-color: var(--primary); background: #ecf5ff; }
+    .blank-cond { padding-bottom: 4px; margin-bottom: 8px; border-bottom: 1px dashed var(--border-1); }
+    .blank-list { display: flex; flex-direction: column; gap: 6px; }
+    .blank-row { display: flex; align-items: center; gap: 8px; }
+    .blank-label { color: var(--text-1); font-weight: 600; white-space: nowrap; }
+    .blank-none { color: var(--text-4); }
+    .blank-aux-head { margin-top: 8px; color: var(--text-3); font-size: 12px; }
+    .blank-field { color: #767602; font-weight: 600; }
+    .blank-lit {
+      display: inline-block; background: var(--bg-tag); border-radius: var(--radius);
+      padding: 1px 8px; color: var(--info); font-size: 12px;
+    }
+    .blank-op { color: var(--warning); font-weight: 600; }
+    .blank-logic { color: var(--el-blue); font-weight: 600; }
+    .hit-badge {
+      display: inline-block; border-radius: var(--radius); padding: 2px 10px; font-size: 12px;
+      font-weight: 600; margin-right: 8px; border: 1px solid transparent;
+    }
+    .hit-badge.pass { background: #f0f9eb; color: var(--success); border-color: #b3e19d; }
+    .hit-badge.fail { background: #fdf6ec; color: var(--warning); border-color: #f3d19e; }
+    /* 决策库选择（repositoryId 选库面板） */
+    /* 主区选库/选分类：按钮 + 已选名称回显（ID 输入框收进「上传参数（高级）」） */
+    .pick-row { display: flex; gap: 8px; align-items: center; min-height: 34px; }
+    .pick-name { font-size: 13px; color: var(--text-1); min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    /* 已选中：名称加粗放进灰色标签框，超长省略、完整信息看悬浮 title（空态“未选择”不加框） */
+    .pick-name:not(.empty) { background: var(--bg-light); border: 1px solid var(--border-2); border-radius: var(--radius); padding: 5px 10px; font-weight: 600; }
+    .pick-name.empty { color: var(--text-4); }
+    .repo-panel {
+      position: fixed; left: 0; top: 0; z-index: 30; display: none;
+      width: 360px; max-width: calc(100vw - 24px); background: #fff;
+      border: 1px solid var(--border-3); border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(0,0,0,.1); padding: 8px;
+    }
+    .repo-panel.show { display: block; }
+    .repo-panel .repo-search {
+      width: 100%; border: 1px solid var(--border-1); border-radius: var(--radius);
+      padding: 7px 9px; font-size: 13px; font-family: inherit; outline: none;
+      color: var(--text-2); transition: border-color .2s;
+    }
+    .repo-panel .repo-search:hover { border-color: var(--text-4); }
+    .repo-panel .repo-search:focus { border-color: var(--primary); }
+    .repo-list { max-height: 280px; overflow-y: auto; margin-top: 6px; }
+    .repo-item {
+      padding: 7px 9px; cursor: pointer; border-radius: var(--radius); font-size: 13px;
+      display: flex; flex-direction: column; gap: 1px;
+    }
+    .repo-item:hover { background: var(--bg-light); }
+    .repo-item.hl { background: #ecf5ff; color: var(--primary); }
+    .repo-item .rname { color: var(--text-1); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .repo-item.hl .rname { color: var(--primary); }
+    .repo-item .rid { font-size: 11px; color: var(--text-3); font-family: Consolas, Menlo, monospace; }
+    .repo-empty { padding: 12px; font-size: 12px; color: var(--text-4); text-align: center; }
+    /* ---------- 临时登录系统（2026-09-30）：全屏遮罩 + 居中卡片 ---------- */
+    .login-mask {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: linear-gradient(160deg, #fdf6ec 0%, #fbeadc 100%);
+      align-items: center; justify-content: center;
+    }
+    .login-card {
+      width: 400px; background: #fff; border-radius: 10px;
+      padding: 40px 44px 34px; box-shadow: 0 8px 30px rgba(0, 21, 41, .12);
+    }
+    .login-card h2 { font-size: 22px; color: var(--text-1); letter-spacing: 8px; margin-bottom: 22px; font-weight: 700; }
+    .login-label { display: block; font-size: 14px; color: var(--primary); font-weight: 600; margin: 16px 0 8px; }
+    .login-card input {
+      width: 100%; height: 42px; border: 1px solid var(--border-1); border-radius: var(--radius);
+      padding: 0 12px; font-size: 14px; color: var(--text-1); outline: none; transition: border-color .2s;
+    }
+    .login-card input::placeholder { color: var(--text-4); }
+    .login-card input:focus { border-color: var(--primary); }
+    .login-err { min-height: 18px; margin-top: 10px; font-size: 12px; color: var(--danger); }
+    .login-card button {
+      width: 100%; height: 44px; margin-top: 6px; border: none; border-radius: var(--radius);
+      background: var(--primary); color: #fff; font-size: 16px; letter-spacing: 8px;
+      cursor: pointer; transition: background .2s;
+    }
+    .login-card button:hover { background: var(--primary-hover); }
+    .login-card button:disabled { opacity: .6; cursor: default; }
+
+    /* 顶部导航直接进入对应的完整功能页。 */
+    body { grid-template-columns: minmax(0, 1fr); grid-template-rows: 64px minmax(0, 1fr); }
+    header { min-height: 64px; }
+    header .brand-logo { height: 64px; }
+    .brand-description { border-left: 1px solid #e3e8f0; padding-left: 18px; color: #60769c; font-size: 11px; }
+    .workspace-tabs { display: flex; gap: 4px; padding: 3px; background: #f0f5fc; border: 1px solid #e4eaf3; border-radius: 4px; }
+    .workspace-tab { display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 3px; color: #435475; text-decoration: none; white-space: nowrap; font-size: 13px; }
+    .workspace-tab:hover { background: #e8f4ff; color: #0079ff; }
+    .workspace-tab[aria-current="page"] { background: #0079ff; color: #fff; }
+    .workspace-tab:focus-visible { outline: 2px solid #0079ff; outline-offset: 2px; }
+    #editorPanel { grid-column: 1; grid-row: 2; }
+    @media (max-width: 600px) {
+      body { grid-template-rows: 112px minmax(0, 1fr); }
+      header { flex-wrap: wrap; align-content: center; min-height: 112px; }
+      header .brand-logo { height: 42px; }
+      .brand-description { display: none; }
+      header .head-right { width: 100%; justify-content: space-between; gap: 8px; }
+      header .status { max-width: 120px; }
+      .workspace-tab { padding: 8px 10px; }
+      #editorPanel { grid-row: 2; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 临时登录遮罩（2026-09-30）：账号密码见 rule_editor/config.yaml login 段 -->
+  <div class="login-mask" id="loginMask">
+    <div class="login-card">
+      <h2>登 录</h2>
+      <label class="login-label" for="loginUser">用户名</label>
+      <input id="loginUser" type="text" autocomplete="username" placeholder="请输入用户名">
+      <label class="login-label" for="loginPass">密码</label>
+      <input id="loginPass" type="password" autocomplete="current-password" placeholder="请输入密码">
+      <div class="login-err" id="loginErr"></div>
+      <button id="loginBtn" type="button">登 录</button>
+    </div>
+  </div>
+
+  <header>
+    <div class="brand">
+      <div class="brand-logo"><img src="/static/logo.svg" alt="艾融科技" width="108" height="26"></div>
+      <span class="brand-description">规则查询 · 智能编写 · 编辑验证</span>
+    </div>
+    <div class="head-right">
+      <nav class="workspace-tabs" aria-label="工作区切换">
+        <a class="workspace-tab" id="assistantTab" href="/assistant/">规则AI助手</a>
+        <a class="workspace-tab" id="editorTab" href="/" aria-current="page">adp规则编辑器</a>
+      </nav>
+      <!-- 2026-09-30：路径索引规模统计（#stats "已建立 N 条多级对象路径索引"）已隐藏 -->
+      <div class="status" id="status">加载中…</div>
+    </div>
+  </header>
+  <main id="editorPanel">
+    <div class="left">
+      <div class="card">
+        <h3>规则编辑（自由文本 · 空格分隔 · 智能补全）</h3>
+        <div class="editor-wrap">
+          <textarea class="rule-box" id="ruleBox"
+            placeholder="点击输入框选择 预定义 / 如果 开始：&#10;· 如果 + 空格 → 规则模式（如：如果 保单的个团标志 是 动态域集的个团标志的团单）&#10;· 预定义 + 空格 → 预定义模式（选'指定'定义别名，如 预定义 指定'A费用上限'为'保单'的…）" autocomplete="off" spellcheck="false">          </textarea>
+          <div class="editor-mark-clip" id="editorMarkClip" aria-hidden="true">
+            <div class="editor-mark-inner" id="editorMarks"></div>
+          </div>
+          <div class="suggest-list" id="suggestList"></div>
+        </div>
+        <div class="hint" id="draftHint" style="display:none; margin-top:6px;">
+          ✎ 已恢复上次未完成的编辑草稿（保存于 <span id="draftAge"></span>）·
+          <a href="javascript:void(0)" id="btnDraftDrop">放弃草稿，从空白开始</a>
+        </div>
+        <div class="row">
+          <button class="btn ghost" id="btnClear">清空</button>
+          <span class="hint" id="hint">
+            空框点击/回车 → 弹出 <kbd>预定义</kbd> / <kbd>如果</kbd> · 输入后按 <kbd>空格</kbd> 进入对应模式 · 规则模式内：<kbd>空格</kbd> 弹候选 · <kbd>↑↓</kbd> 选择 · <kbd>Enter</kbd> 填入
+          </span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>参数生成和上传</h3>
+        <p class="hint" style="margin-bottom:10px;">将上方编辑器中的规则描述（ruleDesc）一键转为 ruleContent 并写入数据库</p>
+        <div class="form-grid">
+          <label>ruleId（规则编号）<input type="text" id="inRuleId" placeholder="如 TEST_001"></label>
+          <label>规则库（repositoryId）
+            <div class="pick-row">
+              <button class="btn ghost" type="button" id="btnRepoPick">选库 ▾</button>
+              <span class="pick-name empty" id="repoNameHint">未选择</span>
+            </div>
+          </label>
+          <label>规则库目录（catalogueId）
+            <div class="pick-row">
+              <button class="btn ghost" type="button" id="btnCatPick">选目录 ▾</button>
+              <span class="pick-name empty" id="catNameHint">未选择</span>
+            </div>
+          </label>
+          <label>高级参数
+            <div class="pick-row">
+              <button class="btn ghost" id="btnAdvToggle" type="button" title="默认隐藏，参数已由 config.yaml upload 节预填">上传参数（高级） ▸</button>
+            </div>
+            <span class="hint" id="advHint" style="margin-top:2px;">token 必填（已取消账号密码登录）；其余参数已有配置默认值</span>
+          </label>
+        </div>
+        <div class="form-grid" id="advParams" style="display:none; margin-top:8px;">
+          <label>repositoryId（决策库 ID）<input type="text" id="inRepo" placeholder="一般由「选库」自动回填；也可手输任意 ID" autocomplete="off"></label>
+          <label>catalogueId（决策分类 ID）<input type="text" id="inCat" placeholder="一般由「选目录」自动回填；也可手输任意 ID" autocomplete="off"></label>
+          <label>token（必填）<input type="text" id="inToken" placeholder="adp-token；主系统打开时自动注入"></label>
+          <label>url（保存接口）<input type="text" id="inUrl" placeholder="缺省取 config upload.url"></label>
+          <label>ruleName（规则名）<input type="text" id="inRuleName" placeholder="默认：测试接口"></label>
+          <label>bomBaseInfoId（传预定义必填）<input type="text" id="inBomBase" placeholder="编辑区含'预定义/指定'行时必填"></label>
+          <label>bomModelId（传那么/否则必填）<input type="text" id="inBomModel" placeholder="编辑区含'那么/否则'行时必填"></label>
+        </div>
+        <div class="row">
+          <button class="btn primary" id="btnGen" type="button">生成规则json</button>
+          <button class="btn primary" id="btnUpload" type="button" disabled title="先点击「生成规则json」并核对结果">提交保存</button>
+          <button class="btn ghost" id="btnUploadClear">清空提示</button>
+          <span class="hint" id="uploadHint"></span>
+        </div>
+        <pre id="uploadResult" class="upload-result"></pre>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="card">
+        <h3>规则内容预览</h3>
+        <div id="descPreview" class="empty">（尚未输入）</div>
+        <!-- 2026-09-30：「复制规则内容」按钮已移除（btnCopy/copyHint） -->
+        <div class="legend">
+          <span><i style="background:#409eff"></i>连接词</span>
+          <span><i style="background:#e6a23c"></i>运算符</span>
+          <span><i style="background:#767602"></i>对象字段</span>
+          <span><i style="background:#606266"></i>数字</span>
+          <span><i style="background:#1e3a8a"></i>布尔值</span>
+          <span><i style="background:#606266"></i>值</span>
+          <span><i style="background:#f56c6c"></i>错误</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>规则命中测试</h3>
+        <p>上方为"如果"条件只读文本（<b style="color:#767602;">深黄色为字段显示文本</b>），下方逐行列出条件中出现的字段——在输入框里填该字段的模拟取值即可（填值口径与报文一致：纯数字自动转数值、前导 0 的编号/机构号保持文本，列表/对象填完整 JSON）。填完点"本地命中测试"，只跑本地求值器，不调用 ADP 接口（如"保单的金额大于100"填 50 → 50&lt;100 → 未命中）。同一字段多处出现时，填一处即全部同步。</p>
+        <div id="blankRule" class="blank-box empty">（点击「生成上传参数」后，自动按"如果"条件列出需填字段）</div>
+        <div class="row">
+          <button class="btn primary" id="btnBlankTest">本地命中测试</button>
+          <span class="hint" id="blankHint"></span>
+        </div>
+        <pre id="blankResult" class="hit-result"></pre>
+      </div>
+      <!-- 2026-09-30：「测试报文（input 骨架）」卡片已从前端移除
+           （含 testMsg/testEdit/inAppId/btnCopyTestMsg/btnShowJson/btnTestHit/
+           testMsgHint/testHitHint/hitResult 等元素）；
+           后端 /api/test_rule_hit、上传响应的 testInput 骨架生成逻辑保留未动，
+           app.js 相关渲染/绑定按元素缺失降级为 no-op -->
+      <div class="card">
+        <h3>使用说明</h3>
+        <p>规则是一段自由文本，语义单元之间用空格分隔，例如：</p>
+        <p id="example" style="background:#fff;border:1px solid #d6e9ff;padding:10px;border-radius:4px;color:#409eff;">
+          如果 保单的个团标志 是 动态域集的个团标志的团单
+        </p>
+        <div class="hint">
+          1. 空框点击或按回车，弹出入口候选 <strong>预定义</strong> / <strong>如果</strong> / <strong>那么</strong> / <strong>否则</strong>。<br>
+          2. 输入（或回车选中）引导词后按<strong>空格</strong>进入对应模式：<strong>如果</strong> → 规则模式；<strong>预定义</strong> → 预定义模式（其后选 <strong>指定</strong> 定义别名，如 `预定义 指定'A费用上限'为'保单'的…`）；<strong>那么/否则</strong> → 动作模式。<br>
+          3. 规则模式：输入文字后按<strong>光标所在的词</strong>检索候选；空格进入新词，弹出运算符/连接词候选。<br>
+          4. 选中候选填入后仍是普通文本，可随时修改；两个空格之间的文本参与一次检索。
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- 决策库选库面板（repositoryId，数据源 /api/repositories） -->
+  <div class="repo-panel" id="repoPanel">
+    <input type="text" class="repo-search" id="repoSearch" placeholder="输入库名 / ID 关键字过滤…" autocomplete="off">
+    <div class="repo-list" id="repoList"></div>
+  </div>
+
+  <!-- 决策分类选分类面板（catalogueId，按 repositoryId 检索 /api/catalogues） -->
+  <div class="repo-panel" id="catPanel">
+    <input type="text" class="repo-search" id="catSearch" placeholder="输入目录名 / ID 关键字过滤…" autocomplete="off">
+    <div class="repo-list" id="catList"></div>
+  </div>
+
+  <!-- 2026-09-23：加版本号防浏览器启发式缓存，前端改动普通刷新即可生效 -->
+  <script src="/static/login.js?v=20260930a"></script>
+  <script src="/static/app.js?v=20261104-local-fields"></script>
+  <script src="/static/navigation.js?v=20261103pages"></script>
+</body>
+</html>

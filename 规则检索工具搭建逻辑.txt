@@ -1,0 +1,25 @@
+该数据库只读
+ip:192.168.0.6
+端口:3306
+用户名：root
+密码：root
+库名：ya_car
+
+为airong_agent_test1\.pi\extensions\rule-search.ts添加一个rule_search的工具，工具的目的是通过查表mysql得到相应的规则数据
+工具的输入参数是（查询关键词，bom_base_info_id),其中bom_base_info_id暂时作为系统默认值（暂时设置为 bom_base_info_id: "f8e7be25e1d6475a83c232d544cc36bb"   
+   ）可以先把数据库信息和bom_base_info_id做一个配置文件
+
+
+一个RULE_ID对应一条规则，获取规则数据的查表路径是：首先根据 BOM_BASE_INFO_ID,查表decision_repository获取得到的数据的DECISION_REPOSITORY_ID
+再根据DECISION_REPOSITORY_ID查表decision_rep_catalogue获取所有数据的DECISION_REP_CATALOGUE_ID
+再根据DECISION_REP_CATALOGUE_ID查表catalogue_rule_rel得到所有规则数据的RULE_ID
+
+接下来就是根据RULE_ID获取规则数据的2个组成部分：
+1.规则预定义：根据RULE_ID查表rule_defined_predefine得到每个数据的RULE_PREDEFINE_DESC
+2.规则如果部分：根据RULE_ID查表rule_defined得到每个数据的RULE_DESC(注意这里要做一个删除html符号的处理)
+3.再对RULE_PREDEFINE_DESC和RULE_DESC对应ruleid进行合并，通过关键词进行检索，得到最终检索到的结果
+
+现在我要添加规则执行文本（那么，否则），直接拓展rule_search即可，根据关键词过滤完后的RULE_ID查表rule_method_define，然后得到对应的method_id和RULE_METHOD_DEFINE_ID和SETTING_THEN(1是那么，0是否则），
+再根据METHOD_ID查表rule_method得到对应的METHOD_NMAE，METHOD_NMAE就是需要输出的文本，
+光拿METHOD_NMAE不够，还缺参数值，这时就要通过RULE_METHOD_DEFINE_ID查表rule_method_define_param得到这个方法的参数值（PARAM_ID和PARAM_VALUE,注意一个method可以有多个参数），
+注意，规则执行文本（那么，否则）不需要去做关键词检索，直接跟着上面预定义如果对应的ruleid输出：那么：METHOD_NMAE：xxx,PARAM_ID:PARAM_VALUE（否则同理）即可，后续我自己再用提示词来让模型帮我把参数填进去
